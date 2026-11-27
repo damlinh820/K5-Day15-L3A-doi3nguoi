@@ -93,14 +93,15 @@ Nhóm dùng stack khác (Node, Streamlit, notebook…): sửa hàm `run_app()` t
 
 | Thành phần | Thật / Giả | Ghi chú |
 |---|---|---|
-| Lời gọi AI ở quyết định trung tâm | **Thật** (bắt buộc từ CP3) | Model: ____ |
-|  |  |  |
+| Lời gọi AI ở quyết định trung tâm | **Giả tại CP2** | `MODEL_PROVIDER=fake`; đã chạy hết luồng với Q001. Trước CP3 phải nối model thật và ghi tên model. |
+| Dữ liệu yêu cầu báo giá | **Synthetic** | 12 tình huống có chủ đích; chỉ dùng prototype và eval, không dùng chứng minh pain. |
+| Nguồn pain công khai | **Thật nhưng chỉ là bối cảnh** | 5 tài liệu/4 tổ chức; chưa thay thế khảo sát hoặc phỏng vấn đúng người dùng. |
 
 ## Dùng AI vào việc gì
 
 2–3 dòng (bắt buộc): nhóm dùng công cụ AI nào để làm gì, người kiểm lại phần nào. Chi tiết: [docs/ai-usage.md](docs/ai-usage.md). Coding agent đọc [AGENTS.md](AGENTS.md).
 
-Nhóm dùng Codex để đọc bộ đề, dựng repo từ starter và rà cấu trúc CP1. Thành viên nhóm chịu trách nhiệm kiểm tra lại định vị Track E, nội dung Canvas, thông tin thành viên và mọi bằng chứng trước khi nộp; không dùng AI để tạo dữ liệu phỏng vấn hay số liệu khảo sát.
+Nhóm dùng Codex để đọc bộ đề, rà cấu trúc CP1–CP2, soạn khung workflow, quy tắc kiểm tra và bộ câu thử trên dữ liệu synthetic. Thành viên phụ trách phải kiểm lại thiết kế, code, nguồn và từng câu thử trước khi commit; không dùng AI để tạo người phỏng vấn, câu trả lời khảo sát hoặc số liệu bằng chứng.
 
 ## File mẫu — điền ở bước nào
 

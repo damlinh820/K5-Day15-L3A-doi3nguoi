@@ -9,7 +9,7 @@ Ngày truy cập nguồn: **27/11/2026**. Phụ trách: Ngô Văn Tuân; Codex h
 | Tài liệu công khai | Đã đọc 5 tài liệu từ 4 tổ chức, có 5 trích dẫn; là bằng chứng bối cảnh, chưa tự xác nhận đạt ngưỡng pain CP3. | [data-mining.md](data-mining.md), [public-sources.csv](public-sources.csv) |
 | Review theo kế hoạch ban đầu | Chưa thu thập bộ ≥30 phản hồi. | Tiêu chí gốc: [hypothesis.md](hypothesis.md). |
 | Phỏng vấn ≥3 người ngoài nhóm, đúng vai | Chưa thực hiện; chưa có lịch hẹn xác nhận. | Chỉ ghi người đã thực sự trao đổi, đã ẩn danh. |
-| Khảo sát ≥20 người ngoài nhóm, đúng vai | Chưa thực hiện. | Không có số liệu để báo cáo. |
+| Khảo sát ≥20 người ngoài nhóm, đúng vai | Đã soạn `survey/questions.md`; chưa mở form, chưa có câu trả lời. | Không có số liệu để báo cáo; chỉ tính người từng trực tiếp quản lý ưu đãi. |
 
 ## 2. Số chính
 
