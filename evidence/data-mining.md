@@ -1,40 +1,56 @@
-# Đào data — cách đếm và kết quả
+# Rà tài liệu công khai — cách chọn nguồn và kết quả
 
-> Điền ở guide bước 1.2. Ôn lại: ngày 2, ngày 6 · lab ngày 2, lab ngày 6.
-> Không đào data thì xoá file này. Script / công thức đếm để trong repo (vd `evidence/count.py` hoặc ghi công thức Sheets ngay dưới), người khác chạy lại phải ra cùng số.
-> Repo chỉ chứa số đã tổng hợp và vài dòng ví dụ — không chép lại nguyên file data.
+Ngày truy cập: **27/11/2026**. Phụ trách: Ngô Văn Tuân; Codex hỗ trợ tìm và tổng hợp, Tuân kiểm lại trước khi nộp.
 
-## 1. Cách đếm — viết TRƯỚC khi chạy
+Đây là tổng quan tài liệu, chưa phải bộ review hay dữ liệu hành vi người dùng. Không dùng số tài liệu để thay ngưỡng trong `hypothesis.md`.
 
-- Data dùng: __ (file nào, từ ngày nào đến ngày nào)
-- Đếm gì: __ · trên tập nào: __ · lọc gì: __
-- **Mẫu số là gì:** __ *(lỗi hay gặp nhất là mẫu số sai)*
-- Script / công thức: __
+## 1. Cách tìm và chọn nguồn
 
-## 2. Đọc trước, đếm sau
+- Tìm theo các cụm: `promotion uplift budget allocation incentive`, `ride hailing coupon allocation budget constraints`, `Supporting large campaigns at scale`, `Using Causal Inference to Improve the Uber User Experience`.
+- Chọn nguồn do doanh nghiệp trực tiếp vận hành hoặc tác giả nghiên cứu công bố; có nội dung đọc được, xuất bản không muộn hơn ngày truy cập và liên quan đến coupon, ngân sách hoặc vận hành chiến dịch.
+- Loại bản đăng lại, trang tổng hợp, tuyển dụng và kết quả chỉ có snippet chưa kiểm tra nội dung gốc.
+- Chọn mẫu có chủ đích, không phải mẫu ngẫu nhiên hay tìm kiếm hệ thống toàn bộ tài liệu. Đây là ghi chép phương pháp sau khi đọc nguồn, không phải kế hoạch mã hóa đăng ký trước.
+- Danh mục: [public-sources.csv](public-sources.csv). Một dòng là một tài liệu; bản trùng URL/khu vực của cùng bài chỉ tính một lần.
 
-Đã đọc __ dòng đầu và từ điển cột. Các *kiểu* hành vi thấy được (trước khi định nghĩa thứ cần đếm):
-- __
-- __
+## 2. Quy tắc mã hóa
 
-## 3. Kết quả
+| Cột | Quy tắc |
+|---|---|
+| `budget_constraint` | 1 nếu phần được dẫn nêu giới hạn ngân sách khi phân bổ ưu đãi; ngược lại 0. |
+| `manual_operations` | 1 nếu phần được dẫn mô tả thao tác chiến dịch thủ công từng xảy ra; ngược lại 0. |
+| `scope` | Phạm vi của nguồn, dùng để tránh suy rộng từ tài xế/giao đồ ăn/du lịch sang voucher hành khách. |
 
-| Đếm gì | x / N | % | Ghi chú |
+Cột mã hóa được Codex gán từ nội dung nguồn, chưa có người thứ hai chấm độc lập. Giá trị 0 là không có trong phần được dẫn, không khẳng định vấn đề không tồn tại.
+
+## 3. Kết quả và cách đếm lại
+
+| Đếm gì | x/N | % | Diễn giải |
 |---|---|---|---|
-| | | | |
-| | | | |
+| Tài liệu đề cập giới hạn ngân sách | 3/5 | 60% | S01, S02, S03. |
+| Tài liệu mô tả vận hành thủ công trước đây | 2/5 | 40% | S01, S04; không phải tình trạng hiện tại đã xác nhận. |
 
-Ghi dạng "x/N (y%)". "Nhiều bạn…" không phải số.
+**N = 5 tài liệu**, thuộc 4 tổ chức Uber, DiDi, Booking.com, Grab; không phải 5 người dùng độc lập. Các tỷ lệ chỉ mô tả tập tài liệu đã chọn, không đo tỷ lệ người dùng gặp pain.
 
-## 4. ≥5 ví dụ cụ thể (mã dòng / mã đã ẩn danh, không đoán ai là ai)
+Chạy từ thư mục gốc, chỉ dùng Python standard library:
 
-1.
-2.
-3.
-4.
-5.
+```powershell
+@'
+import csv
+from pathlib import Path
+rows = list(csv.DictReader(Path("evidence/public-sources.csv").open(encoding="utf-8-sig", newline="")))
+print("sources:", len(rows))
+print("organizations:", len({row["organization"] for row in rows}))
+for column in ("budget_constraint", "manual_operations"):
+    count = sum(int(row[column]) for row in rows)
+    print(f"{column}: {count}/{len(rows)} ({count / len(rows):.0%})")
+'@ | python -X utf8 -
+```
 
-## 5. Giới hạn của data
+Lệnh chỉ kiểm lại phép đếm trên bảng đã mã hóa; người kiểm cần mở link và vị trí dẫn để xác nhận nội dung/mã hóa. Năm ví dụ nguyên văn và giới hạn từng nguồn nằm ở [summary.md](summary.md).
 
-Data cho biết người ta **làm gì**, không cho biết **vì sao**. Thiếu gì, lệch về phía nào: __
-→ Kiểm lại bằng phỏng vấn / khảo sát nào: __
+## 4. Giới hạn và bước kiểm chứng tiếp
+
+- Không thu được review hay phỏng vấn người vận hành trong lần rà này. Nguồn doanh nghiệp có thể thiên về giới thiệu giải pháp đã xây.
+- Chưa biết số lần pain/tháng, thời gian mất, chi phí trợ giá thừa hay nhu cầu dùng sản phẩm của người dùng mục tiêu.
+- Không có dữ liệu giao dịch hoặc nhóm đối chứng để chứng minh voucher tạo thêm chuyến; dữ liệu demo dựng chỉ dùng kiểm tra luồng và quy tắc.
+- Bước tiếp theo: phỏng vấn ≥3 người ngoài nhóm có kinh nghiệm vận hành khuyến mãi; hoặc thu bộ review thật theo kế hoạch gốc, đồng thời làm rõ giới hạn vì reviewer có thể là hành khách.
