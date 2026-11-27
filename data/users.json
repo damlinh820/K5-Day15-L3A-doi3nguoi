@@ -1,0 +1,17 @@
+[
+  {
+    "user_id": "U001",
+    "persona": "sinh_vien",
+    "description": "Sinh viên theo dõi sát ăn uống và đi lại."
+  },
+  {
+    "user_id": "U002",
+    "persona": "nhan_vien_van_phong",
+    "description": "Nhân viên văn phòng có nhiều chi mua sắm và ăn ngoài."
+  },
+  {
+    "user_id": "U003",
+    "persona": "nguoi_lo_chi_tieu_gia_dinh",
+    "description": "Người quản lý chi tiêu gia đình, ưu tiên khoản thiết yếu."
+  }
+]

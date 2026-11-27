@@ -1,11 +1,9 @@
-# Giả thuyết — viết TRƯỚC khi tìm bằng chứng (5 phút, commit ngay)
+# Giả thuyết pain — Track E2
 
-> Điền ở guide bước 1.1. Ôn lại: ngày 2 · lab ngày 2.
-> Viết **trước** khi đọc dòng data đầu tiên hay hỏi người đầu tiên, để không sửa cho khớp kết quả. Kết quả ngược giả thuyết vẫn đủ điểm nếu số là thật.
-
-- Ngày giờ viết: 27/11/2026 16:00 (UTC+7)
-- Người dùng chính (một vai cụ thể): quản lý tăng trưởng phụ trách ngân sách voucher hằng ngày của một nền tảng gọi xe.
-- **Mình nghĩ:** quản lý tăng trưởng gặp khó khi chọn mức voucher cho từng nhóm khách vì chưa phân biệt được chuyến cần trợ giá với chuyến vốn vẫn được đặt, hậu quả là ngân sách bị tiêu vào trợ giá thừa hoặc cạn trước cuối kỳ.
-- **Có thể còn cách giải thích khác:** chi phí cao có thể chủ yếu do đặt trần ngân sách hoặc mục tiêu tăng trưởng sai, không phải do cá nhân hóa voucher chưa tốt.
-- **Mình đúng nếu thấy:** trong ≥30 phản hồi công khai có ít nhất 20% đề cập voucher không phù hợp/không dùng được, hoặc ≥2/3 người được phỏng vấn kể được một chiến dịch gần đây có trợ giá thừa, vượt ngân sách hay khó giải thích quyết định cấp voucher.
-- **Nguồn sẽ dùng** (≥1 nguồn đạt ngưỡng, guide 1.2): [x] đào data · [x] phỏng vấn ≥3 · [ ] khảo sát ≥20 — nguồn chính: phản hồi công khai trên Google Play/App Store của ứng dụng gọi xe · nguồn để kiểm lại: phỏng vấn người từng vận hành khuyến mãi hoặc bán hàng.
+- Ngày viết lại sau khi đổi hướng: 27/11/2026 (UTC+7), trước khi mở khảo sát E2.
+- Người dùng chính: nhân viên văn phòng dùng ví điện tử/app ngân hàng và có đặt ngân sách theo nhóm chi.
+- **Mình nghĩ:** người dùng thường phát hiện nhóm chi sắp vượt ngân sách quá muộn và mất thời gian rà lại giao dịch để biết khoản nào có thể giảm.
+- **Cách giải thích khác:** người dùng có thể không đặt ngân sách, không thấy đây là vấn đề, hoặc nguyên nhân chính là thu nhập/chi phí thiết yếu chứ không phải thiếu cảnh báo.
+- **Mình đúng nếu thấy:** trong ≥20 phản hồi hợp lệ, ít nhất 8 người kể một trường hợp trong 30 ngày qua phát hiện gần/vượt ngân sách muộn hoặc mất ≥15 phút rà khoản có thể giảm; đồng thời có ≥5 trích dẫn nguyên văn mô tả hành vi thật.
+- **Nguồn chính dự kiến:** khảo sát ≥20 người ngoài nhóm dùng ví/app ngân hàng; nguồn kiểm tra chéo: ≥30 review công khai được chọn và mã hóa theo kế hoạch ở `data-mining.md`.
+- Kết quả ngược giả thuyết vẫn được giữ và báo cáo; không đổi ngưỡng sau khi có dữ liệu.

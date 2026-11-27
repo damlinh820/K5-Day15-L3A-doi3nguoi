@@ -1,4 +1,4 @@
-# EVPromoAI — Cá nhân hóa voucher đặt xe
+# EVPromoAI — Cảnh báo sắp vượt ngân sách
 
 **Thành viên, lớp, track:** xem [TEAMS.md](TEAMS.md). **Điền TEAMS.md đúng format**: khi chấm và đánh giá, BTC quét file này để ghép điểm cho từng người.
 
@@ -8,9 +8,9 @@
 
 ## Bài toán CP1
 
-**Track E — Tài chính.** Quản lý tăng trưởng của nền tảng gọi xe đang phân bổ voucher cho các nhóm khách nhưng khó phân biệt chuyến cần trợ giá với chuyến vốn vẫn được đặt, dẫn đến trợ giá thừa hoặc cạn ngân sách chiến dịch.
+**Track E — E2.** Người dùng ví điện tử hoặc app ngân hàng đang cố giữ chi tiêu theo nhóm trong ngân sách nhưng thường nhận ra quá muộn và khó tìm khoản có thể giảm mà không ảnh hưởng nhu cầu thiết yếu.
 
-**Lát cắt dự kiến.** Với một yêu cầu báo giá, hệ thống đề xuất một mức voucher dựa trên hành vi khách hàng và ngân sách còn lại; quy tắc cứng chặn phương án vượt trần chi hoặc làm âm biên, còn quản lý quyết định thay đổi chính sách.
+**Lát cắt.** Khi một giao dịch synthetic làm nhóm chi chạm 80% ngân sách, code bật cảnh báo và lọc khoản không thiết yếu; AI gợi ý 2–3 khoản có thể giảm, còn người dùng làm theo, bỏ qua hoặc tắt cảnh báo.
 
 Chi tiết Canvas CP1: [canvas.md](canvas.md). Giả thuyết bằng chứng: [evidence/hypothesis.md](evidence/hypothesis.md).
 
@@ -94,14 +94,14 @@ Nhóm dùng stack khác (Node, Streamlit, notebook…): sửa hàm `run_app()` t
 | Thành phần | Thật / Giả | Ghi chú |
 |---|---|---|
 | Lời gọi AI ở quyết định trung tâm | **Giả tại CP2** | `MODEL_PROVIDER=fake`; đã chạy hết luồng với Q001. Trước CP3 phải nối model thật và ghi tên model. |
-| Dữ liệu yêu cầu báo giá | **Synthetic** | 12 tình huống có chủ đích; chỉ dùng prototype và eval, không dùng chứng minh pain. |
-| Nguồn pain công khai | **Thật nhưng chỉ là bối cảnh** | 5 tài liệu/4 tổ chức; chưa thay thế khảo sát hoặc phỏng vấn đúng người dùng. |
+| Dữ liệu giao dịch | **Synthetic** | 252 dòng, 3 persona, 3 tháng, 7 nhóm chi, seed 42; không dùng chứng minh pain. |
+| Bằng chứng pain E2 | **Chưa đạt ngưỡng** | Đã soạn khảo sát và kế hoạch review; chưa có phản hồi hoặc review đã mã hóa. |
 
 ## Dùng AI vào việc gì
 
 2–3 dòng (bắt buộc): nhóm dùng công cụ AI nào để làm gì, người kiểm lại phần nào. Chi tiết: [docs/ai-usage.md](docs/ai-usage.md). Coding agent đọc [AGENTS.md](AGENTS.md).
 
-Nhóm dùng Codex để đọc bộ đề, rà cấu trúc CP1–CP2, soạn khung workflow, quy tắc kiểm tra và bộ câu thử trên dữ liệu synthetic. Thành viên phụ trách phải kiểm lại thiết kế, code, nguồn và từng câu thử trước khi commit; không dùng AI để tạo người phỏng vấn, câu trả lời khảo sát hoặc số liệu bằng chứng.
+Nhóm dùng Codex để rà đề, chuyển bài sang E2, soạn workflow, dữ liệu synthetic, khảo sát và bộ câu thử. Thành viên phụ trách phải kiểm lại thiết kế, code, nguồn và từng câu thử; không dùng AI để tạo người phỏng vấn, câu trả lời khảo sát, review hay số liệu bằng chứng.
 
 ## File mẫu — điền ở bước nào
 

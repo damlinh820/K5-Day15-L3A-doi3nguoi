@@ -1,29 +1,29 @@
-# Data card — EVPromoAI
+# Data card — Track E2
 
-## Dataset 1 · Bối cảnh yêu cầu báo giá synthetic
-
-| | |
-|---|---|
-| Dùng để làm gì | `get_quote_context` đọc giá chuyến, chi phí, ngân sách, trần voucher và hành vi tổng hợp; `validate_voucher` kiểm tra phương án. |
-| Từ đâu | `data/quote_contexts.json`, nhóm tự viết 12 tình huống cho prototype CP2; không lấy từ nền tảng gọi xe. |
-| Xử lý | Dùng mã giả `REQ-001`–`REQ-012`; chuẩn hóa tiền VND nguyên; không có tên, số điện thoại, vị trí hay dữ liệu cá nhân. |
-| Số dòng | 12 bản ghi JSON. |
-| Phiên bản / ngày | CP2 v1 · 27/11/2026. |
-| Nhãn | `synthetic`, các edge case được thiết kế có chủ đích; không tuyên bố là mẫu ngẫu nhiên. |
-| Giới hạn | Không phản ánh phân phối khách thật, không chứng minh voucher tăng chuyến và không dùng để suy ra pain/impact kinh doanh. |
-
-Các tình huống phủ ngân sách thấp/hết, trần 5–15%, biên thấp và cả trường hợp 0% vẫn âm biên. Nguyễn Nho Trọng cần xác nhận lại 12/12 bản ghi trước CP3; chưa ghi là đã kiểm độc lập khi việc đó chưa thực hiện.
-
-## Dataset 2 · Nguồn công khai về pain
+## Dataset 1 · `transactions.csv`
 
 | | |
 |---|---|
-| Dùng để làm gì | Tạo bối cảnh pain và chủ đề cho 10 câu thử; không cung cấp dữ liệu giao dịch hay nhãn mức voucher đúng. |
-| Từ đâu | `evidence/public-sources.csv`: 5 tài liệu công khai từ Uber, DiDi, Booking.com và Grab. |
-| Xử lý | Gắn mã S01–S05, lưu URL, vị trí dẫn và hai nhãn bối cảnh; chi tiết trong `evidence/data-mining.md`. |
-| Số dòng | 5 tài liệu từ 4 tổ chức. |
-| Giới hạn | Mẫu có chủ đích; không phải tỷ lệ người dùng gặp pain và không thay thế khảo sát/phỏng vấn. |
+| Dùng để làm gì | Tra giao dịch, cộng chi theo nhóm, kiểm ngưỡng và tìm khoản không thiết yếu. |
+| Từ đâu | Sinh bằng `data/generate_transactions.py`, seed 42; hoàn toàn synthetic. |
+| Xử lý | 3 persona × 3 tháng × 7 nhóm × 4 giao dịch = 252 dòng; mô tả nơi bán có nhiều cách viết; tiền VND nguyên. |
+| Số dòng | 252 giao dịch; 84 giao dịch/persona; 7 nhóm chi. |
+| Phiên bản | E2 CP2 · 27/11/2026. |
+| Nhãn | `synthetic`; `is_essential` xác định trước cho nhà ở, hóa đơn, y tế. |
+| Giới hạn | Không phản ánh người thật, không chứng minh pain/tác động, phân phối và ngân sách do nhóm tự dựng. |
 
-## Dataset 3 · Bộ câu thử CP2
+## Dataset 2 · `users.json` và `budgets.json`
 
-`eval/benchmark.csv` có 20 câu: 6 thường, 10 khó, 4 từ chối. Mười câu dùng chủ đề từ nguồn công khai nhưng mọi số và request vẫn là synthetic; sáu câu tự viết và bốn câu dựa trên edge case. Không dùng kết quả bộ này để tuyên bố hiệu quả kinh doanh.
+- U001: sinh viên; U002: nhân viên văn phòng; U003: người lo chi tiêu gia đình.
+- Mỗi persona có ngân sách cho `an_uong`, `di_lai`, `mua_sam`, `giai_tri`, `nha_o`, `hoa_don`, `y_te`.
+- Ba edge case cố định ở tháng 11: U001 ăn uống chạm 100%; U002 mua sắm vượt 100%; U003 y tế vượt 100% nhưng không được gợi ý cắt nhóm thiết yếu.
+
+## Tái lập và kiểm
+
+```powershell
+python data/generate_transactions.py
+```
+
+Script ghi lại cả ba file từ seed 42. Nguyễn Nho Trọng cần kiểm tay ba edge case và đếm đủ 252 dòng trước CP3; chưa ghi là đã kiểm độc lập khi việc đó chưa thực hiện.
+
+Không commit sao kê, giao dịch, tên nơi bán, số tài khoản hay dữ liệu cá nhân thật.

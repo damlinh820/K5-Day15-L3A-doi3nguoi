@@ -1,52 +1,70 @@
-"""Công cụ đọc bối cảnh voucher và kiểm tra quy tắc tài chính."""
+"""Công cụ E2: đọc giao dịch, tính ngân sách và tìm khoản có thể cắt."""
+import csv
 import json
 import os
+from collections import defaultdict
 
 from tracing import tool, TOOLS  # noqa: F401
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA_PATH = os.path.join(ROOT, "data", "quote_contexts.json")
-ALLOWED_RATES = (0.00, 0.05, 0.10, 0.15)
-REQUIRED_FIELDS = ("fare_amount", "estimated_cost", "remaining_budget", "max_voucher_rate")
+DATA_DIR = os.path.join(ROOT, "data")
+THRESHOLD = 0.80
+
+
+def _transactions():
+    with open(os.path.join(DATA_DIR, "transactions.csv"), encoding="utf-8-sig", newline="") as handle:
+        rows = list(csv.DictReader(handle))
+    for row in rows:
+        row["amount"] = int(row["amount"])
+        row["is_essential"] = row["is_essential"] == "1"
+    return rows
+
+
+def _budgets():
+    with open(os.path.join(DATA_DIR, "budgets.json"), encoding="utf-8") as handle:
+        return json.load(handle)
 
 
 @tool
-def get_quote_context(request_id: str) -> dict | None:
-    """get_quote_context · Input: request_id · Output: bản ghi synthetic hoặc None · Không tác động ra ngoài."""
-    with open(DATA_PATH, encoding="utf-8") as file:
-        records = json.load(file)
-    wanted = request_id.strip().upper()
-    return next((record for record in records if record["request_id"] == wanted), None)
-
-
-def missing_required_fields(context: dict) -> list:
-    """Trả danh sách trường bắt buộc bị thiếu; hàm thuần, không ghi trace riêng."""
-    return [field for field in REQUIRED_FIELDS if context.get(field) is None]
+def get_transaction(tx_id: str) -> dict | None:
+    """get_transaction · Input: tx_id · Output: giao dịch synthetic hoặc None · Không tác động ra ngoài."""
+    wanted = tx_id.strip().upper()
+    return next((row for row in _transactions() if row["tx_id"].upper() == wanted), None)
 
 
 @tool
-def validate_voucher(context: dict, proposed_rate: float) -> dict:
-    """validate_voucher · Input: bối cảnh + tỷ lệ đề xuất · Output: phép tính và mức hợp lệ · Không tác động ra ngoài."""
-    missing = missing_required_fields(context)
-    if missing:
-        return {"valid": False, "missing_fields": missing, "highest_valid_rate": None}
-    fare, cost = context["fare_amount"], context["estimated_cost"]
-    budget, cap = context["remaining_budget"], context["max_voucher_rate"]
+def get_budget_status(user_id: str, month: str, category: str, through_date: str) -> dict:
+    """get_budget_status · Input: user, tháng, nhóm, ngày · Output: chi/budget/tỷ lệ · Không tác động ra ngoài."""
+    budget = int(_budgets()[user_id][category])
+    rows = [row for row in _transactions() if row["user_id"] == user_id
+            and row["date"].startswith(month) and row["category"] == category
+            and row["date"] <= through_date]
+    spent = sum(row["amount"] for row in rows)
+    return {"user_id": user_id, "month": month, "category": category,
+            "through_date": through_date, "spent": spent, "budget": budget,
+            "ratio": spent / budget if budget else None, "transaction_count": len(rows)}
 
-    def check(rate: float) -> dict:
-        amount = round(fare * rate)
-        margin = fare - cost - amount
-        conditions = {
-            "muc_duoc_phep": rate in ALLOWED_RATES,
-            "khong_vuot_tran_voucher": rate <= cap,
-            "khong_vuot_ngan_sach": amount <= budget,
-            "khong_am_bien": margin >= 0,
-        }
-        return {"rate": rate, "voucher_amount": amount, "remaining_margin": margin,
-                "conditions": conditions, "valid": all(conditions.values())}
 
-    candidate = round(float(proposed_rate), 2)
-    result = check(candidate)
-    valid_rates = [rate for rate in ALLOWED_RATES if check(rate)["valid"]]
-    result["highest_valid_rate"] = max(valid_rates) if valid_rates else None
-    return result
+@tool
+def check_alert_rules(status: dict) -> dict:
+    """check_alert_rules · Input: trạng thái ngân sách · Output: có cảnh báo và lý do · Không tác động ra ngoài."""
+    ratio = status.get("ratio")
+    alert = ratio is not None and ratio >= THRESHOLD
+    return {"alert": alert, "threshold": THRESHOLD,
+            "reason": "spend_ratio_at_least_80_percent" if alert else "below_threshold"}
+
+
+@tool
+def find_cut_candidates(user_id: str, month: str, through_date: str) -> list:
+    """find_cut_candidates · Input: user, tháng, ngày · Output: khoản không thiết yếu tổng hợp · Không tác động ra ngoài."""
+    grouped = defaultdict(lambda: {"amount": 0, "count": 0})
+    for row in _transactions():
+        if (row["user_id"] != user_id or not row["date"].startswith(month)
+                or row["date"] > through_date or row["is_essential"]):
+            continue
+        key = (row["category"], row["description"])
+        grouped[key]["amount"] += row["amount"]
+        grouped[key]["count"] += 1
+    candidates = [{"category": key[0], "description": key[1], **value}
+                  for key, value in grouped.items()]
+    return sorted(candidates, key=lambda item: item["amount"], reverse=True)[:5]

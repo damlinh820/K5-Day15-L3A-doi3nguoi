@@ -12,7 +12,7 @@
 | STT | Họ và tên | Mã học viên | Vai trò | Phần việc chính |
 |---|---|---|---|---|
 | 1 | Đàm Tuấn Linh | 2A202603624 | Đội trưởng | Điều phối sản phẩm, thiết kế luồng quyết định và an toàn |
-| 2 | Ngô Văn Tuân | 2A202603630 | Thành viên | Thu thập bằng chứng người dùng và thiết kế chính sách voucher |
+| 2 | Ngô Văn Tuân | 2A202603630 | Thành viên | Thu thập bằng chứng người dùng và thiết kế khảo sát ngân sách |
 | 3 | Nguyễn Nho Trọng | 2A202603666 | Thành viên | Dữ liệu, bộ câu thử, trải nghiệm và demo |
 
 **Quy tắc điền**
