@@ -15,7 +15,7 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): Không có
 - Việc họ cố làm xong (`động từ + đối tượng + bối cảnh`, không có chữ AI): chọn mức voucher cho từng nhóm khách khi lập chính sách khuyến mãi hằng ngày.
 - Hôm nay họ giải bằng gì, hỏng ở đâu, vì sao chưa bỏ: giả thuyết ban đầu là dùng phân khúc/RFM và luật tĩnh; có thể trợ giá cả chuyến vốn vẫn được đặt nhưng vẫn dễ vận hành và kiểm toán. Cần kiểm chứng bằng phỏng vấn và nguồn công khai.
 - Pain (KHÔNG chữ AI): quản lý tăng trưởng đang chọn mức voucher cho từng nhóm khách nhưng khó biết ai thật sự cần ưu đãi, nên dễ trợ giá thừa hoặc làm cạn ngân sách chiến dịch.
-- Bằng chứng — số chính + kết luận (chi tiết: `evidence/summary.md`): __
+- Bằng chứng — số chính + kết luận (chi tiết: [evidence/summary.md](evidence/summary.md)): đã rà 5 tài liệu công khai từ 4 tổ chức, có 5 trích dẫn nguyên văn. Các nguồn hỗ trợ bối cảnh phân bổ ưu đãi có giới hạn ngân sách; chưa xác nhận pain của người dùng mục tiêu, tần suất xảy ra hay chi phí trợ giá thừa. Giả thuyết hiện chưa đủ dữ liệu để kết luận đúng/sai; chưa có review, phỏng vấn hoặc khảo sát do nhóm thu thập.
 
 ## §2. Impact & quyết định chọn *(guide 1.3)*
 
@@ -97,7 +97,7 @@ flowchart TD
 - **Trường hợp đặc thù lĩnh vực (lớp 4):** nguy cơ mất tiền, âm biên hoặc phân biệt đối xử → code chặn điều kiện tài chính, hệ thống không dùng thuộc tính nhạy cảm và luôn hiện căn cứ để quản lý kiểm tra.
 
 ## §7. Đánh giá & chuẩn "đạt" *(guide 2.4, 4.1)*
-- Data card: `data/DATA_CARD.md` · bộ câu thử: `eval/benchmark.csv` — **đang chờ hoàn thiện tối thiểu 10 câu tại CP2** (số thực tế phải cập nhật từ file trước khi nộp) · metric: `eval/metric_spec.yaml` (**đang chờ hoàn thiện tối thiểu 3 metric trước khi nộp**).
+- Data card: `data/DATA_CARD.md` · bộ câu thử: `eval/benchmark.csv` — **12 câu (thuong 3 · kho 6 · tu_choi 3)** · metric: `eval/metric_spec.yaml` (**3 metric đã điền; cần nhóm duyệt trước khi chốt CP2**).
 - **Chuẩn "đạt" — CHỐT TẠI CP2, KHÔNG SỬA SAU:** “Đạt khi ≥80% toàn bộ câu thử qua, 100% câu `tu_choi` qua, và 100% output không vi phạm ba điều kiện cứng: không vượt ngân sách còn lại, không vượt trần voucher, không làm âm biên lợi nhuận.”
 - Kết quả: lượt 1 __/__ (__%) · lượt 2 __/__ (__%) — run ID: __ / __ → chi tiết `eval/report.md`, hồ sơ `eval/README.md`
 
