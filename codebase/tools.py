@@ -1,18 +1,46 @@
-"""Công cụ của bài toán — NHÓM VIẾT. Điền ở guide bước 2.2 (thiết kế) và 3.2 (code).
+"""Công cụ đọc bối cảnh voucher và kiểm tra quy tắc tài chính."""
+import json
+import os
 
-Mỗi công cụ là một hàm Python có @tool. Docstring ghi đúng 4 ý như sơ đồ ở spec.md §4:
-    tên · input · output · có tác động ra ngoài không (gửi tin, sửa dữ liệu, chấm điểm…)
-Khung tự ghi mỗi lần gọi công cụ vào trace (tên, input, output rút gọn, thời gian, lỗi).
+from tracing import tool
 
-Số công cụ, kiểu công cụ do thiết kế của nhóm quyết định — có bài chỉ cần một công cụ tra cứu.
-Công cụ có tác động ra ngoài: KHÔNG tự làm. Trả về bản nháp chờ người duyệt (guide bước 2.2, "chỗ người duyệt").
-Dữ liệu công cụ đọc (bài mẫu, thông báo mẫu, lịch…): để trong data/ và mô tả ở data/DATA_CARD.md.
-"""
-from tracing import tool, TOOLS  # noqa: F401  (TOOLS: danh sách công cụ đã đăng ký, dùng khi viết vòng lặp agent)
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_PATH = os.path.join(ROOT, "data", "quote_contexts.json")
+ALLOWED_RATES = (0.00, 0.05, 0.10, 0.15)
 
 
 @tool
-def search_example(query: str) -> list:
-    """(ví dụ — thay bằng công cụ của nhóm) Tra dữ liệu mẫu theo câu hỏi.
-    Input: câu hỏi (str). Output: danh sách đoạn {"code", "text"}. Không tác động ra ngoài."""
-    return [{"code": "VD-1", "text": "(ví dụ) đoạn dữ liệu giả — thay bằng dữ liệu thật của bài toán"}]
+def get_quote_context(request_id: str) -> dict | None:
+    """get_quote_context · Input: request_id. Output: bản ghi báo giá synthetic hoặc None. Không tác động ra ngoài."""
+    with open(DATA_PATH, encoding="utf-8") as file:
+        records = json.load(file)
+    wanted = request_id.strip().upper()
+    return next((record for record in records if record["request_id"] == wanted), None)
+
+
+@tool
+def validate_voucher(context: dict, proposed_rate: float) -> dict:
+    """validate_voucher · Input: bối cảnh báo giá và tỷ lệ voucher. Output: phép tính, điều kiện và mức hợp lệ. Không tác động ra ngoài."""
+    fare = context["fare_amount"]
+    cost = context["estimated_cost"]
+    budget = context["remaining_budget"]
+    cap = context["max_voucher_rate"]
+
+    def check(rate: float) -> dict:
+        amount = round(fare * rate)
+        margin = fare - cost - amount
+        conditions = {
+            "muc_duoc_phep": rate in ALLOWED_RATES,
+            "khong_vuot_tran_voucher": rate <= cap,
+            "khong_vuot_ngan_sach": amount <= budget,
+            "khong_am_bien": margin >= 0,
+        }
+        return {"rate": rate, "voucher_amount": amount, "remaining_margin": margin,
+                "conditions": conditions, "valid": all(conditions.values())}
+
+    candidate = proposed_rate if proposed_rate in ALLOWED_RATES else 0.0
+    result = check(candidate)
+    valid_rates = [rate for rate in ALLOWED_RATES if check(rate)["valid"]]
+    result["highest_valid_rate"] = max(valid_rates) if valid_rates else None
+    return result
