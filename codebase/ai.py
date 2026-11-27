@@ -17,7 +17,10 @@ Chế độ giả (mặc định khi .env chưa có MODEL_PROVIDER, hoặc MODEL
 Nối model thật: điền .env (chép từ .env.example), rồi viết nhánh gọi API ở dưới theo docs/connect-model.md
 (có ví dụ OpenAI, Claude, model chạy trên máy, và cách nối nhà cung cấp khác). Không dán API key vào file này.
 """
+import json
 import os
+import urllib.error
+import urllib.request
 
 from tracing import model_call
 
@@ -41,6 +44,42 @@ load_env()
 MODEL_PROVIDER = (os.environ.get("MODEL_PROVIDER") or "fake").strip().lower()
 MODEL_NAME = (os.environ.get("MODEL_NAME") or "").strip()
 API_KEY = (os.environ.get("API_KEY") or "").strip()
+URL_OPENAI = "https://api.openai.com/v1/chat/completions"
+
+
+def post_json(url, headers, body, timeout=60):
+    """Gửi POST JSON bằng thư viện chuẩn và trả về phản hồi đã giải mã."""
+    request = urllib.request.Request(
+        url,
+        data=json.dumps(body).encode("utf-8"),
+        method="POST",
+        headers={"Content-Type": "application/json", **headers},
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=timeout) as response:
+            return json.loads(response.read().decode("utf-8"))
+    except urllib.error.HTTPError as error:
+        detail = error.read().decode("utf-8", "replace")[:300]
+        raise RuntimeError(f"HTTP {error.code}: {detail}") from error
+
+
+def call_openai(system, user):
+    """Gọi OpenAI một lần và lấy token từ trường usage của API."""
+    messages = []
+    if system:
+        messages.append({"role": "system", "content": system})
+    messages.append({"role": "user", "content": user})
+    data = post_json(
+        URL_OPENAI,
+        {"Authorization": "Bearer " + API_KEY},
+        {"model": MODEL_NAME, "messages": messages},
+    )
+    usage = data["usage"]
+    return {
+        "text": data["choices"][0]["message"]["content"],
+        "tokens_in": usage["prompt_tokens"],
+        "tokens_out": usage["completion_tokens"],
+    }
 
 
 @model_call
@@ -49,8 +88,18 @@ def call_model(system: str, user: str) -> dict:
         last = (user.strip().splitlines() or [""])[-1]
         return {"text": "[câu trả lời giả — chưa nối model] " + last[:60], "model": "fake", "tokens_in": 0, "tokens_out": 0}
 
-    # NHÓM VIẾT: gọi model thật ở đây (theo MODEL_PROVIDER, MODEL_NAME, API_KEY) rồi trả đúng 4 khoá.
-    # Ví dụ chép được cho từng nhà cung cấp: docs/connect-model.md mục 2.
-    raise NotImplementedError(
-        "chưa viết phần gọi model thật cho MODEL_PROVIDER=%s trong codebase/ai.py — xem docs/connect-model.md"
-        % MODEL_PROVIDER)
+    if MODEL_PROVIDER != "openai":
+        raise RuntimeError(
+            "MODEL_PROVIDER=%s chưa được hỗ trợ; cấu hình openai hoặc bổ sung nhà cung cấp."
+            % MODEL_PROVIDER
+        )
+    if not MODEL_NAME or not API_KEY:
+        raise RuntimeError("Thiếu MODEL_NAME hoặc API_KEY trong .env.")
+
+    result = call_openai(system, user)
+    return {
+        "text": result["text"],
+        "model": MODEL_NAME,
+        "tokens_in": int(result["tokens_in"]),
+        "tokens_out": int(result["tokens_out"]),
+    }
