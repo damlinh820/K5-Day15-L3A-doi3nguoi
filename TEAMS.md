@@ -14,7 +14,7 @@
 | 1 | Đàm Tuấn Linh | 2A202603624 | Đội trưởng | Điều phối sản phẩm, thiết kế luồng quyết định và an toàn |
 | 2 | Ngô Văn Tuân | 2A202603630 | Thành viên | Thu thập bằng chứng người dùng và thiết kế khảo sát ngân sách |
 | 3 | Nguyễn Nho Trọng | 2A202603666 | Thành viên | Dữ liệu, bộ câu thử, trải nghiệm và demo |
-| 4 | Phạm Quang Trường | 2A202603378 | Thành Viên | Tài liệu CP3, kiểm thử bàn giao và video demo |
+| 4 | Phạm Quang Trường | 2A202603378 | Thành viên | Tài liệu CP3, kiểm thử bàn giao và video demo |
 
 **Quy tắc điền**
 - **Lớp:** `L3A` hoặc `L3B`. **Track:** một chữ `A` (EdTech), `B` (Y tế), `C` (Du lịch), `D` (Thương mại điện tử), `E` (Tài chính) hoặc `F` (Làn khác). **Link repo:** link GitHub công khai của nhóm.
