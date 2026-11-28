@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EVPromoAI | Cảnh báo ngân sách</title>
+<style>
+*{box-sizing:border-box} :root{--ink:#123d32;--green:#17644f;--muted:#617970;--lime:#d1efb8;--paper:#f5f8f2;--line:#d7e4db} html,body{margin:0;min-height:100%;font-family:"Segoe UI",Arial,sans-serif;color:var(--ink);background:#e5ece5} button,a{font:inherit} .viewer{height:100dvh;display:grid;place-items:center;padding:22px 28px 70px}.deck{position:relative;width:min(1440px,calc((100dvh - 100px)*16/9),calc(100vw - 56px));aspect-ratio:16/9;background:var(--paper);box-shadow:0 20px 70px #16362924;overflow:hidden}.slide{position:absolute;inset:0;display:none;overflow:hidden;padding:5.2% 6.1%;background:var(--paper)}.slide.active{display:block}.eyebrow{text-transform:uppercase;font-size:clamp(10px,1.05vw,15px);font-weight:800;letter-spacing:.16em;color:#41846a}.slide h1{font-size:clamp(28px,3.7vw,54px);line-height:1.1;letter-spacing:-.035em;margin:.3em 0 .4em}.slide h2{font-size:clamp(25px,3.3vw,48px);line-height:1.12;letter-spacing:-.035em;margin:.3em 0 .45em}.intro{font-size:clamp(13px,1.45vw,21px);line-height:1.5;color:var(--muted);margin:0;max-width:800px}.slide-no{position:absolute;bottom:4%;left:6.1%;font-size:clamp(9px,.85vw,12px);color:#769084;letter-spacing:.08em}.team-layout{display:grid;grid-template-columns:34% 1fr;gap:6%;height:77%;align-items:center}.hero-title{font-size:clamp(31px,4.4vw,64px)!important;line-height:1.06!important;margin:.15em 0 .3em!important}.hero-text{font-size:clamp(13px,1.3vw,19px);line-height:1.55;color:var(--muted)}.members{border-top:1px solid #adc8b8}.member{display:grid;grid-template-columns:1fr auto;gap:12px;padding:3.2% 0;border-bottom:1px solid #cddfd2}.member strong{display:block;font-size:clamp(15px,1.55vw,22px)}.member small{display:block;color:#60796b;font-size:clamp(10px,1vw,14px);margin-top:3px}.member .id{color:#557568;font-size:clamp(10px,.95vw,14px);white-space:nowrap;padding-top:3px}.split{display:grid;grid-template-columns:52% 42%;gap:6%;align-items:center;height:80%}.problem-quote{font-size:clamp(20px,2.35vw,34px);line-height:1.34;font-weight:700;letter-spacing:-.02em;max-width:620px}.accent{color:#268a67}.problem-visual{border-left:2px solid #97c3a4;padding-left:10%;}.problem-visual .label{font-size:clamp(11px,1vw,15px);font-weight:700;color:#658076;letter-spacing:.08em;text-transform:uppercase}.problem-visual .threshold{font-size:clamp(72px,10vw,145px);font-weight:800;line-height:1;letter-spacing:-.08em;margin:7% 0;color:#1a7157}.problem-visual p{font-size:clamp(13px,1.35vw,19px);line-height:1.5;color:#526e61}.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:5%;margin-top:4%;}.stat-lead{padding-right:10%;border-right:1px solid #cbdcd0}.big-number{font-size:clamp(68px,8vw,116px);line-height:1;font-weight:800;letter-spacing:-.08em;color:#1b795c}.big-number small{font-size:.28em;letter-spacing:0;color:#678274;margin-left:5px}.stat-lead p{font-size:clamp(13px,1.4vw,20px);line-height:1.5;color:#526e61}.barline{margin:0 0 5.4%}.barhead{display:flex;justify-content:space-between;gap:10px;font-size:clamp(12px,1.22vw,18px);margin-bottom:7px}.barhead strong{white-space:nowrap}.track{height:9px;background:#dcebe0;border-radius:9px;overflow:hidden}.fill{height:100%;background:#2e9972;border-radius:9px}.source{position:absolute;bottom:5%;right:6.1%;max-width:82%;font-size:clamp(9px,.75vw,11px);line-height:1.35;color:#668076;text-align:right}.demo-layout{height:81%;display:grid;grid-template-columns:1fr 41%;gap:5%;align-items:center}.demo-copy h2{margin-bottom:.35em}.feature{padding:2.2% 0;border-top:1px solid #cbded1}.feature strong{font-size:clamp(13px,1.32vw,19px)}.feature p{margin:3px 0 0;font-size:clamp(11px,1.06vw,15px);line-height:1.35;color:var(--muted)}.phone-shell{justify-self:center;height:100%;aspect-ratio:390/700;max-width:100%;background:#173a31;border:7px solid #173a31;border-radius:28px;overflow:hidden;box-shadow:0 14px 30px #173a3120}.phone-shell iframe{display:block;width:100%;height:100%;border:0;background:#f7faf8}.demo-help{font-size:clamp(9px,.9vw,13px);color:#607a6d;line-height:1.4;margin-top:9px}.demo-help a{color:#17644f}.closing{background:#154d3e;color:#f5fbf5}.closing .eyebrow{color:#b5dcb9}.closing h2{font-size:clamp(42px,6.8vw,98px);margin:17% 0 2%;letter-spacing:-.05em}.closing p{font-size:clamp(15px,1.7vw,24px);color:#d2e7d6}.closing .slide-no{color:#a9cbb6}.nav{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px;z-index:9;color:#2b5545}.nav button{border:0;background:#fff;color:#204c3c;border-radius:9px;padding:8px 15px;font-weight:700;cursor:pointer}.nav button:disabled{opacity:.4;cursor:default}.nav span{font-size:13px;min-width:45px;text-align:center}@media(max-width:700px){.viewer{padding:8px 8px 58px}.deck{width:min(calc(100vw - 16px),calc((100dvh - 80px)*16/9))}.slide{padding:4% 5%}.slide h1,.slide h2{font-size:clamp(17px,4vw,29px)}.hero-title{font-size:clamp(22px,5vw,36px)!important}.member strong{font-size:clamp(10px,2vw,15px)}.member small,.member .id{font-size:clamp(8px,1.45vw,11px)}.eyebrow,.slide-no,.source{font-size:8px}.hero-text,.intro,.problem-visual p,.stat-lead p{font-size:clamp(9px,1.8vw,13px)}.problem-quote{font-size:clamp(13px,2.6vw,20px)}.barhead{font-size:clamp(8px,1.6vw,12px)}.big-number{font-size:clamp(40px,9vw,70px)}.feature strong{font-size:clamp(9px,1.7vw,13px)}.feature p,.demo-help{font-size:clamp(8px,1.3vw,10px)}.phone-shell{border-width:4px;border-radius:14px}}
+@media print{html,body{background:white}.viewer{height:auto;display:block;padding:0}.deck{width:100%;aspect-ratio:auto;box-shadow:none;overflow:visible}.slide,.slide.active{position:relative;display:block;width:100%;height:56.25vw;break-after:page;page-break-after:always}.slide:last-child{break-after:auto}.nav{display:none}@page{size:landscape;margin:0}}
+</style>
+<style>
+.slide[aria-label="Slide 4: Demo giao diện"]{padding:2.5% 5.5%}
+.slide[aria-label="Slide 4: Demo giao diện"] .demo-layout{height:100%;grid-template-columns:46% 50%;gap:4%}
+.slide[aria-label="Slide 4: Demo giao diện"] .phone-shell{height:100%;width:auto;aspect-ratio:9/16;max-width:100%;max-height:none}
+.slide[aria-label="Slide 4: Demo giao diện"] .phone-shell iframe{width:100%;height:100%}
+.demo-scenario{margin-top:14px;max-width:420px}.demo-scenario label{display:block;font-size:clamp(10px,1vw,14px);font-weight:700;color:#527465;margin-bottom:6px}.demo-scenario select{width:100%;padding:9px 11px;border:1px solid #b8d2c1;border-radius:9px;background:white;color:#204c3c;font:inherit;font-size:clamp(11px,1.05vw,15px)}
+.slide[aria-label="Slide 4: Demo giao diện"] .slide-no{bottom:2.4%;left:5.5%}
+@media(max-width:700px){.slide[aria-label="Slide 4: Demo giao diện"]{padding:3% 4%}.slide[aria-label="Slide 4: Demo giao diện"] .demo-layout{grid-template-columns:44% 53%;gap:3%}}
+</style>
+</head>
+<body>
+<div class="viewer"><main class="deck" aria-label="Bài trình chiếu EVPromoAI">
+<section class="slide active" aria-label="Slide 1: Giới thiệu thành viên">
+  <div class="eyebrow">EVPromoAI / Track E2</div>
+  <div class="team-layout">
+    <div><h1 class="hero-title">Đội ngũ<br>thực hiện</h1><p class="hero-text">Cảnh báo ngân sách và gợi ý điều chỉnh chi tiêu</p><p class="hero-text">AI20K · Lớp L3A</p></div>
+    <div class="members">
+      <div class="member"><div><strong>Đàm Tuấn Linh</strong><small>Đội trưởng · Điều phối và thiết kế luồng</small></div><span class="id">2A202603624</span></div>
+      <div class="member"><div><strong>Ngô Văn Tuân</strong><small>Khảo sát và bằng chứng người dùng</small></div><span class="id">2A202603630</span></div>
+      <div class="member"><div><strong>Nguyễn Nho Trọng</strong><small>Dữ liệu, đánh giá và demo</small></div><span class="id">2A202603666</span></div>
+      <div class="member"><div><strong>Phạm Quang Trường</strong><small>Kiểm thử và video demo</small></div><span class="id">2A202603378</span></div>
+    </div>
+  </div><div class="slide-no">01 / 05</div>
+</section>
+<section class="slide" aria-label="Slide 2: Bài toán">
+  <div class="eyebrow">Bài toán</div><div class="split">
+    <div><h2>Nhận ra vượt ngân sách<br>trước khi quá muộn</h2><p class="problem-quote">Người dùng khó theo dõi từng nhóm chi và chưa biết <span class="accent">khoản nào có thể điều chỉnh</span> khi ngân sách sắp hết.</p></div>
+    <div class="problem-visual"><div class="label">Ngưỡng cảnh báo theo nhóm</div><div class="threshold">80%</div><p>Khi một nhóm chạm ngưỡng, ứng dụng hiển thị số đã chi và gợi ý khoản không thiết yếu. Người dùng tự quyết định.</p></div>
+  </div><div class="slide-no">02 / 05</div>
+</section>
+<section class="slide" aria-label="Slide 3: Kết quả khảo sát">
+  <div class="eyebrow">Khảo sát người dùng</div><h2>Tín hiệu từ 31 phản hồi</h2>
+  <div class="stat-grid"><div class="stat-lead"><div class="big-number">31<small>phản hồi</small></div><p>Người trả lời mô tả những khó khăn khi theo dõi chi tiêu và xác định khoản có thể giảm.</p><p style="font-size:clamp(10px,1vw,14px)">Khảo sát cho phép chọn nhiều khó khăn.</p></div>
+    <div>
+      <div class="barline"><div class="barhead"><span>Quên theo dõi chi tiêu</span><strong>13 / 31</strong></div><div class="track"><div class="fill" style="width:41.9%"></div></div></div>
+      <div class="barline"><div class="barhead"><span>Khó phân loại giao dịch</span><strong>13 / 31</strong></div><div class="track"><div class="fill" style="width:41.9%"></div></div></div>
+      <div class="barline"><div class="barhead"><span>Không biết khoản có thể giảm</span><strong>11 / 31</strong></div><div class="track"><div class="fill" style="width:35.5%"></div></div></div>
+      <div class="barline"><div class="barhead"><span>Phát hiện vượt ngân sách quá muộn</span><strong>6 / 31</strong></div><div class="track"><div class="fill" style="width:19.4%"></div></div></div>
+    </div>
+  </div><div class="slide-no">03 / 05</div><div class="source">Nguồn: evidence/summary.md, bản CSV 31 phản hồi. Mẫu gồm cả người chưa khớp persona; chưa đủ dữ liệu xác nhận ngưỡng pain đã đăng ký.</div>
+</section>
+<section class="slide" aria-label="Slide 4: Demo giao diện">
+ <div class="demo-layout"><div class="demo-copy"><div class="eyebrow">Demo sản phẩm</div><h2>Một góc nhìn rõ hơn<br>về chi tiêu</h2>
+   <div class="feature"><strong>Trang chủ</strong><p>Xem số dư, cơ cấu tiền ra và tiến độ ngân sách theo nhóm.</p></div>
+   <div class="feature"><strong>Chi tiết từng nhóm</strong><p>Điều chỉnh mức trần, xem lịch sử và đặt câu hỏi theo nhóm.</p></div>
+   <div class="feature"><strong>Thêm thu chi</strong><p>Nhận diện nhóm từ nội dung. Giao dịch chưa rõ được đưa vào thông báo để xác nhận.</p></div>
+   <div class="demo-scenario"><label for="slideScenario">Chọn kịch bản trình diễn</label><select id="slideScenario"><option value="salary">Đầu tháng mới nhận lương</option><option value="mid">Giữa tháng chạm ngưỡng 80%</option><option value="end">Cuối tháng vượt ngân sách</option></select></div><div class="demo-help">Cuộn bên trong màn hình điện thoại để xem các nội dung phía dưới. Chạy <code>py codebase/demo_server.py</code> nếu giao diện chưa hiện. <a href="http://127.0.0.1:8765/" target="_blank" rel="noopener">Mở demo toàn màn hình ↗</a></div>
+ </div><div class="phone-shell"><iframe id="demoFrame" src="http://127.0.0.1:8765/#embed" title="Giao diện demo ví chi tiêu" loading="lazy"></iframe></div></div><div class="slide-no">04 / 05</div>
+</section>
+<section class="slide closing" aria-label="Slide 5: Cảm ơn">
+  <div class="eyebrow">EVPromoAI / Track E2</div><h2>Cảm ơn<br>mọi người</h2><p>Nhóm rất mong nhận được câu hỏi và góp ý.</p><div class="slide-no">05 / 05</div>
+</section>
+</main></div>
+<nav class="nav" aria-label="Điều hướng slide"><button id="prev" type="button">← Trước</button><span id="counter">1 / 5</span><button id="next" type="button">Tiếp →</button><button id="full" type="button" title="Trình chiếu toàn màn hình">Toàn màn hình</button></nav>
+<script>
+const slides=[...document.querySelectorAll('.slide')];let current=0;
+function show(index){current=Math.max(0,Math.min(slides.length-1,index));slides.forEach((slide,i)=>{slide.classList.toggle('active',i===current);slide.setAttribute('aria-hidden',i===current?'false':'true')});document.getElementById('counter').textContent=(current+1)+' / '+slides.length;document.getElementById('prev').disabled=current===0;document.getElementById('next').disabled=current===slides.length-1;history.replaceState(null,'','#'+(current+1))}
+document.getElementById('prev').onclick=()=>show(current-1);document.getElementById('next').onclick=()=>show(current+1);document.getElementById('full').onclick=()=>{if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.()};
+const demoFrame=document.getElementById('demoFrame'),slideScenario=document.getElementById('slideScenario');function syncScenario(){demoFrame.contentWindow?.postMessage({type:'demo-scenario',scenario:slideScenario.value},'http://127.0.0.1:8765')}demoFrame.addEventListener('load',syncScenario);slideScenario.addEventListener('change',syncScenario);
+document.addEventListener('keydown',event=>{if(event.target.closest('input,textarea,select'))return;if(['ArrowRight','PageDown',' '].includes(event.key)){event.preventDefault();show(current+1)}if(['ArrowLeft','PageUp'].includes(event.key)){event.preventDefault();show(current-1)}if(event.key==='Home')show(0);if(event.key==='End')show(slides.length-1)});
+show(Number(location.hash.slice(1))-1||0);
+</script>
+</body>
+</html>
