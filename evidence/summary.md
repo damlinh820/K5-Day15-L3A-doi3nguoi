@@ -4,6 +4,8 @@
 
 Phụ trách: Ngô Văn Tuân; Codex hỗ trợ tìm nguồn và tổng hợp. Giữ nguyên tiêu chí của giả thuyết gốc và chuẩn đạt sau CP2. Đối tượng hiện tại đã được mở rộng theo Canvas, ghi riêng trong nhật ký thay đổi vì đây là quyết định sau khi đã có dữ liệu.
 
+Link bảng do nhóm cung cấp: [Google Sheets khảo sát](https://docs.google.com/spreadsheets/d/1PBkJUoWysDsxhcFtNoagPUZxsqZ22c_B3GBI88UffRg/edit?gid=1174331201#gid=1174331201). Báo cáo này dùng bản CSV Tuân cung cấp; đã kiểm có 31 dòng dữ liệu và 31 timestamp khác nhau, không nhầm hàng tiêu đề thành phản hồi. Timestamp không lưu vào repo và không chứng minh 31 người độc lập.
+
 ### 1. Nguồn hiện có và mức xác minh
 
 | Nguồn | Tiến độ | Giới hạn |
@@ -28,6 +30,54 @@ Nguồn: [survey/responses-anonymized.csv](survey/responses-anonymized.csv), cá
 Các lựa chọn có thể trùng người, không cộng các tử số. Giữ đủ 31 dòng, kể cả người không gặp pain, dưới 18 tuổi và câu trả lời có cờ chất lượng; các nhóm riêng chỉ phục vụ phân tích. Các số của bản plan cũ 11/22, 8/22, 7/22, 4/22, 3/22, 14/22 vẫn khớp 22 dòng đầu. Bản 24 phản hồi cũ có các tử số 12, 9, 7, 4, 4, 16; giữ phần đối chiếu trong `metrics.csv` và `survey/README.md`, không dùng làm kết quả hiện tại. Điểm đánh giá minh họa không chứng minh pain hay hiệu quả thực tế.
 
 S025/S028/S029 vừa chọn có ứng dụng vừa chọn không sử dụng; S025/S028 thuộc nhóm 16, cần hỏi lại nên có nhóm đối chiếu 14. S012/S015/S025 có lựa chọn cách theo dõi mâu thuẫn; S022 vừa chọn không gặp khó khăn vừa chọn khó phân loại. Đã gắn cờ, không tự sửa/xóa. Q19 có 26 ô trống và 5 câu Có/Không/Ko, **không có lời kể tự do đủ nội dung** để trích dẫn hành vi. Bộ thực tế 19 câu khác bản thiết kế 10 câu trong repo; xem [survey/questions-actual.csv](survey/questions-actual.csv).
+
+### 2.1. Các chỉ số bổ sung của nhóm đã đối chiếu CSV
+
+| Quan sát | Kết quả | Diễn giải |
+|---|---:|---|
+| Chi vượt mức ít nhất thỉnh thoảng trong 3 tháng gần đây | 27/31 (87,1%) | Vượt mức dự kiến là tình huống phổ biến trong mẫu |
+| Nhận ra trước hoặc khi gần chạm giới hạn | 19/31 (61,3%) | Phần lớn không nói rằng họ chỉ phát hiện sau khi đã vượt |
+| Nhận ra sau khi vượt, khi gần hết tiền hoặc lúc tổng kết cuối tháng | 9/31 (29,0%) | Tín hiệu gần nhất cho pain phát hiện muộn, nhưng không thay thế câu hỏi hành vi 30 ngày |
+| Chọn “quên theo dõi chi tiêu” | 13/31 (41,9%) | Pain theo dõi có tín hiệu rõ |
+| Chọn “khó phân loại các khoản giao dịch” | 13/31 (41,9%) | Pain hiểu giao dịch có tín hiệu rõ |
+| Chọn “không biết khoản chi nào có thể cắt giảm” | 11/31 (35,5%) | Có nhu cầu hỗ trợ chọn khoản có thể giảm |
+| Chọn “phát hiện vượt ngân sách quá muộn” | 6/31 (19,4%) | Có pain nhưng không chiếm đa số toàn mẫu |
+| Chọn “cảnh báo chi tiêu chưa đủ thông tin” | 5/31 (16,1%) | Pain về chất lượng cảnh báo còn yếu |
+| Phải xem lại giao dịch hoặc rất khó xác định khoản nên cắt | 13/31 (41,9%) | Hỗ trợ gợi ý khoản giảm có căn cứ |
+| Muốn thấy số đã chi và ngân sách còn lại trong cảnh báo | 16/31 (51,6%) | Ủng hộ việc để code hiển thị số và tỷ lệ |
+| Muốn thấy các giao dịch dẫn đến nguy cơ | 10/31 (32,3%) | Ủng hộ cảnh báo có căn cứ truy ngược |
+| Muốn nhận đề xuất khoản có thể cắt giảm | 9/31 (29,0%) | Có nhu cầu, nhưng không phải lựa chọn của đa số |
+| Chấm cảnh báo minh họa ở mức 4–5/5 | 19/31 (61,3%) | Mẫu toàn bộ đánh giá ý tưởng tích cực ở mức vừa |
+| Rất sẵn sàng hoặc có thể dùng nếu bảo mật | 26/31 (83,9%) | Bảo mật là điều kiện quan trọng, không phải sự chấp nhận vô điều kiện |
+
+Bảng tổng hợp bổ sung: [survey/results-summary.csv](survey/results-summary.csv). Các số trên mô tả toàn bộ 31 phản hồi, gồm cả người dưới 18 tuổi; không thay mẫu số hồ sơ 16/14. Q4 tự báo tần suất dùng app, trong khi Q3 có ba lựa chọn mâu thuẫn đã ghi rõ ở trên. Cảm nhận/ý định sử dụng không phải hiệu quả đã đo.
+
+
+### 2.2. Đối chiếu nhóm nghề nhân viên văn phòng
+
+- Có 8/31 phản hồi thuộc nhóm nhân viên văn phòng, trong đó 7 người từ 18 tuổi. Đây là nhóm nghề để đối chiếu; đối tượng hiện tại không giới hạn nghề. Hồ sơ gốc có thêm điều kiện đang đặt ngân sách nên chỉ có 3 người.
+- 7/8 chi vượt mức ít nhất thỉnh thoảng.
+- 6/8 nhận ra trước hoặc khi gần chạm giới hạn; không ai trong nhóm này chọn trực tiếp “phát hiện vượt ngân sách quá muộn”.
+- 3/8 quên theo dõi, 3/8 khó phân loại giao dịch và 2/8 không biết khoản nào có thể cắt giảm.
+- 4/8 muốn cảnh báo hiển thị số đã chi và ngân sách còn lại.
+- Chỉ 2/8 chấm cảnh báo minh họa ở mức 4/5; không có người chấm 5/5.
+
+Kết quả nhóm nhỏ này không đủ để kết luận persona nhân viên văn phòng thường phát hiện quá muộn. Nó ủng hộ mạnh hơn nhu cầu theo dõi số tiền và phân loại giao dịch.
+
+### 2.3. Ví dụ lựa chọn trắc nghiệm đã đối chiếu
+
+Các dòng dưới đây giữ nguyên lựa chọn của người trả lời ở Q8, Q9 và Q11. Đây là **ví dụ nguyên văn từ lựa chọn trong form**, không phải câu tự luận do người tham gia tự viết.
+
+1. **S006:** “Sau khi đã vượt ngân sách” · “Không biết khoản chi nào có thể cắt giảm, Phát hiện vượt ngân sách quá muộn, Cảnh báo chi tiêu chưa đủ thông tin” · “Rất khó xác định”.
+2. **S011:** “Khi tài khoản gần hết tiền” · “Quên theo dõi chi tiêu, Không biết khoản chi nào có thể cắt giảm, Phát hiện vượt ngân sách quá muộn” · “Rất khó xác định”.
+3. **S015:** “Khi tổng kết chi tiêu cuối tháng” · “Khó phân loại các khoản giao dịch, Nội dung giao dịch khó hiểu, Không biết khoản chi nào có thể cắt giảm, Chi tiêu qua nhiều ứng dụng, khó tổng hợp”.
+4. **S024:** “Trước khi gần chạm giới hạn ngân sách” · “Phát hiện vượt ngân sách quá muộn, Chi tiêu qua nhiều ứng dụng, khó tổng hợp” · “Phải mất thời gian xem lại giao dịch”.
+5. **S027:** “Khi tổng kết chi tiêu cuối tháng” · “Quên theo dõi chi tiêu, Nội dung giao dịch khó hiểu, Không biết khoản chi nào có thể cắt giảm, Cảnh báo chi tiêu chưa đủ thông tin, Chi tiêu qua nhiều ứng dụng, khó tổng hợp” · “Rất khó xác định”.
+
+Câu 19 chỉ có các câu ngắn như “Không”, “Ko”, “ko”, “không” và “Có”, nên không đủ nội dung để dùng làm trích dẫn hành vi tự do.
+
+Mã Sxxx khớp thứ tự dòng của `survey/responses-anonymized.csv`. Các lựa chọn có sẵn này giúp truy vết tình huống; không được tính thành năm lời kể tự do hoặc cuộc phỏng vấn để xác nhận giả thuyết.
+
 
 ### 3. Năm trích đoạn nguyên văn công khai đã ẩn danh
 

@@ -19,6 +19,8 @@ Script tạo:
 - [questions-actual.csv](questions-actual.csv): nguyên câu hỏi thực tế Q1–Q19, không chứa câu trả lời.
 - [analysis.json](analysis.json): cỡ mẫu, kiểm tra trùng câu trả lời, cờ chất lượng và giới hạn đo lường; không chứa đường dẫn file cá nhân.
 
+[results-summary.csv](results-summary.csv) là bảng 18 chỉ số toàn mẫu do nhóm bổ sung từ bản 31 phản hồi, đã được đối chiếu lại với CSV gốc khi tích hợp. Đây là bảng snapshot của nhóm, không do `analyze.py` sinh; nếu thay bản khảo sát cần kiểm lại bảng này. Kết quả theo hồ sơ mở rộng/gốc dùng `metrics.csv`, không suy ra từ phần trăm toàn mẫu.
+
 S001 là dòng dữ liệu đầu tiên sau header, tương tự đến S031; mã S001–S024 giữ nguyên vì câu trả lời cũ không đổi thứ tự. Thành viên có CSV gốc có thể truy lại từng dòng. Không lưu tên, email, timestamp, số tài khoản hoặc nội dung giao dịch thật. Khoảng trắng và dấu phẩy thừa trong lựa chọn được chuẩn hóa; câu checkbox được tách theo **toàn bộ nhãn đã biết**, không cắt nhãn chứa dấu phẩy thành nhiều đáp án. Nhãn lạ khiến script dừng trước khi xuất để tránh vô tình công khai nội dung ngoài danh sách.
 
 ## Mẫu số và điều kiện đúng đối tượng

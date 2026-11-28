@@ -47,9 +47,14 @@ def answer(text: str) -> dict:
     alert = check_alert_rules(status)
     ratio_text = "%.0f%%" % (status["ratio"] * 100)
     if not alert["alert"]:
+        essential_note = (
+            " Đây là nhóm thiết yếu nên hệ thống không gợi ý cắt giảm."
+            if transaction["is_essential"]
+            else ""
+        )
         return {"output": (f"Không bật cảnh báo cho {tx_id}: nhóm {transaction['category']} đã chi "
                            f"{_money(status['spent'])}/{_money(status['budget'])} ({ratio_text}), dưới ngưỡng 80%. "
-                           "Bạn có thể tiếp tục theo dõi hoặc tự điều chỉnh ngân sách.")}
+                           f"Bạn có thể tiếp tục theo dõi hoặc tự điều chỉnh ngân sách.{essential_note}")}
 
     candidates = find_cut_candidates(transaction["user_id"], month, transaction["date"])
     prompt = "Trạng thái do code tính:\n%s\nKhoản không thiết yếu:\n%s" % (
