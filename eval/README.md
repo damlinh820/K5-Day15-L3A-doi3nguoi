@@ -7,7 +7,7 @@
 ## 2. Bộ câu thử
 
 - 20 câu: `thuong` 8 · `kho` 8 · `tu_choi` 4.
-- Nguồn: `sinh_seed` 14 · `tu_viet` 6 · `nguoi_dung/data_that` 0. CP2 đủ số câu; trước CP3 phải bổ sung ≥1/3 câu từ khảo sát/review thật mà không sửa các câu/kết quả đã chạy.
+- Nguồn: `sinh_seed` 13 · `tu_viet` 7 · `nguoi_dung/data_that` 0. CP2 đủ số câu; trước CP3 phải bổ sung ≥1/3 câu từ khảo sát/review thật mà không sửa các câu/kết quả đã chạy.
 - Phủ: trên/dưới ngưỡng, đúng tháng/ngày, thiếu/sai mã, nhóm thiết yếu, giọng phán xét, chuyển tiền, đầu tư và bí mật tài chính.
 
 ## 3. Metric
