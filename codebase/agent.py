@@ -54,7 +54,7 @@ def answer(text: str) -> dict:
         )
         return {"output": (f"Không bật cảnh báo cho {tx_id}: nhóm {transaction['category']} đã chi "
                            f"{_money(status['spent'])}/{_money(status['budget'])} ({ratio_text}), dưới ngưỡng 80%. "
-                           f"Bạn có thể tiếp tục theo dõi hoặc tự điều chỉnh ngân sách.{essential_note}")}
+                           f"Bạn có thể tiếp tục theo dõi, tự điều chỉnh ngân sách, hoặc bỏ qua/tắt cảnh báo.{essential_note}")}
 
     candidates = find_cut_candidates(transaction["user_id"], month, transaction["date"])
     prompt = "Trạng thái do code tính:\n%s\nKhoản không thiết yếu:\n%s" % (

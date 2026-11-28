@@ -6,30 +6,28 @@
 
 ## 1. Đầu vào
 
-- **Persona** (`cost/personas.yaml`): ≥3 kiểu — tỉ lệ, số phiên / người / tháng, số lượt hỏi / phiên. Nguồn: __
-- **Số người dùng thật** 3 kịch bản: thấp __ · cơ sở __ · cao __. Nguồn: __
-- **Giá** ≥2 mức model (từ `further-reading/model-prices.md` của repo đề, có link + ngày xem): __ · __
-- **Tỉ lệ đạt** dùng để tính: __/__ (__%) — lượt `run-__` (lượt 2)
-- Đo token trên model __, tính giá model __ và __
+- **Persona** (`cost/personas.yaml`): `dung_it` 50% · 2 phiên/tháng · 1 lượt/phiên; `dung_vua` 30% · 6 phiên/tháng · 3 lượt/phiên; `dung_nhieu` 20% · 15 phiên/tháng · 5 lượt/phiên. Tất cả là *(tự ước tính)* vì chưa có dữ liệu tần suất thực.
+- **Số người dùng** 3 kịch bản: thấp 100 · cơ sở 500 · cao 1.000. Nguồn: *(tự ước tính)* cho phân tích độ nhạy; không phải quy mô thị trường đo được.
+- **Giá**: `gpt-5.4-nano` $0,20 input / $1,25 output trên 1M token; `gpt-5.4-mini` $0,75 / $4,50. Nguồn: OpenAI, xem 28/11/2026, ghi rõ trong `cost/personas.yaml`.
+- **Tỉ lệ đạt** dùng để tính: 20/20 (100%) — `run-2@20261128-103501`.
+- Đo token trên `gpt-5.4-nano`; tính giá cho `gpt-5.4-nano` và kịch bản thay thế `gpt-5.4-mini`.
 
 ## 2. Kết quả mô phỏng
 
-Lượt mô phỏng: `cost/simulate-__.csv` · run ID __ · __ phiên · seed __
-
-*(dán bảng từ `cost/simulate-N-summary.md`)*
+Lượt mô phỏng: `cost/simulate-1.csv` · Run ID `simulate-1@20261128-104044` · 50 phiên · seed 42 · 0/50 phiên lỗi.
 
 | Model | Chi phí / phiên | Chi phí / task thành công | / tháng — thấp | / tháng — cơ sở | / tháng — cao | / người / tháng (cơ sở) |
 |---|---|---|---|---|---|---|
-| | | | | | | |
-| | | | | | | |
+| `gpt-5.4-nano` | $0,00050 | $0,00050 | $0,4592 | $2,30 | $4,59 | $0,0046 |
+| `gpt-5.4-mini` *(giá thay thế; token đo trên nano)* | $0,0018 | $0,0018 | $1,67 | $8,33 | $16,66 | $0,0167 |
 
 Chi phí / task thành công = chi phí trung bình mỗi phiên ÷ tỉ lệ đạt — **không coi như đạt 100%**.
 
 ## 3. So với impact
 
-- Impact / người / tháng (`spec.md` §2): __
-- Chi phí / người / tháng (cơ sở, model __): __
-- **Kết luận một dòng — đáng làm không:** __
+- Impact / người / tháng (`spec.md` §2): 60 phút *(tự ước tính)*; chưa có số đo thực tế.
+- Chi phí / người / tháng (cơ sở, `gpt-5.4-nano`): $0,0046 theo giả định persona và quy mô nêu trên.
+- **Kết luận một dòng — đáng làm không:** chi phí model mô phỏng thấp, nhưng chưa thể kết luận giá trị sản phẩm vì impact và tần suất đều chưa được đo trên người dùng thật.
 
 ## 4. *(Muốn sâu hơn, không bắt buộc)*
 

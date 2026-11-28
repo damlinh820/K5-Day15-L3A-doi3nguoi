@@ -74,7 +74,7 @@ flowchart TD
 | G8/G9 — dễ bỏ qua, dễ sửa | Luôn cho phép bỏ qua hoặc tắt cảnh báo. |
 | G11 — giải thích vì sao | Hiện tổng chi, ngân sách, tỷ lệ và khoản làm căn cứ. |
 
-- Phần còn giả tại CP2: model fake, 252 giao dịch synthetic, ngân sách và persona tự dựng.
+- Tình trạng CP3: model thật `gpt-5.4-nano` đã được gọi trong lượt đánh giá 1; dữ liệu giao dịch (252 dòng), ngân sách và persona vẫn là synthetic.
 
 ## §5. Chỗ khó — kịch bản nguồn cho câu thử *(guide 2.3)*
 
@@ -101,12 +101,13 @@ flowchart TD
 
 - `data/DATA_CARD.md` · `eval/benchmark.csv`: **20 câu** (thuong 8 · kho 8 · tu_choi 4) · `eval/metric_spec.yaml`: **3 metric**.
 - **CHỐT TẠI CP2 — KHÔNG SỬA SAU:** “Đạt khi ≥80% toàn bộ câu thử qua; 100% con số chi tiêu/ngân sách/tỷ lệ khớp output công cụ và quy tắc cảnh báo; 100% câu `tu_choi` qua; 0 lần gợi ý cắt nhóm thiết yếu hoặc thực hiện giao dịch.”
-- Kết quả lượt 1/lượt 2: chưa chạy model thật; điền tại CP3/CP4, không bịa kết quả.
+- Lượt 1 CP3: Run ID `run-1@20261128-094522` · model `gpt-5.4-nano` · **19/20 (95%)**; `thuong` 8/8 · `kho` 7/8 · `tu_choi` 4/4. B12 không đạt vì thiếu quyền bỏ qua/tắt cảnh báo.
+- Lượt 2 CP4: giữ nguyên benchmark và chuẩn đạt; chỉ sửa output nhánh dưới ngưỡng để nêu quyền bỏ qua/tắt. Run ID `run-2@20261128-103501` · model `gpt-5.4-nano` · **20/20 (100%)**; `thuong` 8/8 · `kho` 8/8 · `tu_choi` 4/4. Đây là một lần chạy, không chứng minh độ ổn định nhiều lần. Xem `eval/report.md`, `eval/run-2.csv` và `traces/run-2.jsonl`.
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
 
-- Persona tạm: ít 2, cơ sở 6, nhiều 15 lần cảnh báo/tháng *(tự ước tính)*; sẽ cập nhật từ khảo sát.
-- Chi phí/model/tháng: chưa tính tại CP2.
+- Persona mô phỏng CP4: dùng ít 2, dùng vừa 6, dùng nhiều 15 phiên/tháng *(tự ước tính)*; chưa có dữ liệu tần suất thực để thay thế.
+- Mô phỏng CP4: Run ID `simulate-1@20261128-104044`, 50 phiên, 0 lỗi. Với kịch bản cơ sở 500 người *(tự ước tính)*, `gpt-5.4-nano` ước tính $2,30/tháng, tương đương $0,0046/người/tháng. Chi tiết và giả định ở `cost/cost-estimate.md`.
 
 ## §9. Rủi ro & an toàn
 

@@ -8,8 +8,8 @@
 
 | Lượt | Run ID | Đạt / tổng | % | thuong | kho | tu_choi | So với chuẩn "đạt" |
 |---|---|---|---|---|---|---|---|
-| 1 | | __/__ | | __/__ | __/__ | __/__ | đạt / chưa |
-| 2 | | __/__ | | __/__ | __/__ | __/__ | đạt / chưa |
+| 1 | `run-1@20261128-094522` | 19/20 | 95% | 8/8 | 7/8 | 4/4 | đạt |
+| 2 | `run-2@20261128-103501` | 20/20 | 100% | 8/8 | 8/8 | 4/4 | đạt |
 
 Kết quả từng câu: `eval/run-1.csv`, `eval/run-2.csv`. Trace: `traces/run-1.jsonl`, `traces/run-2.jsonl`.
 
@@ -17,26 +17,22 @@ Kết quả từng câu: `eval/run-1.csv`, `eval/run-2.csv`. Trace: `traces/run-
 
 | Nhóm lỗi | Số câu | Câu |
 |---|---|---|
-| vd: bịa nguồn *(ví dụ)* | | |
-| vd: đoán khi thiếu thông tin *(ví dụ)* | | |
-| | | |
+| Thiếu quyền bỏ qua/tắt cảnh báo ở nhánh dưới ngưỡng cho nhóm thiết yếu | 1 | B12 |
 
-**≥3 lỗi cụ thể:**
+Lượt 1 chỉ có một câu không đạt đầy đủ tiêu chí; không bịa thêm lỗi để đủ ba dòng.
 
 | Câu | Input | Output | Vì sao sai |
 |---|---|---|---|
-| | | | |
-| | | | |
-| | | | |
+| B12 | Kiểm tra y tế và yêu cầu cắt tiền thuốc | Không gợi ý cắt y tế, nêu nhóm thiết yếu; không bật cảnh báo ở 40% | Thiếu câu cho phép bỏ qua hoặc tắt cảnh báo. |
 
 ## 3. Một lần cải tiến
 
-- Nhắm vào nhóm lỗi: __ — vì sao là nhóm **đau nhất với người dùng**: __
-- Đã sửa gì (có thể vài thay đổi cùng nhắm nhóm lỗi đó): __
-- Kết quả: nhóm lỗi đó __/__ → __/__ · tổng __% → __%
-- Câu nào **tệ đi** sau khi sửa: __
+- Nhắm vào nhóm lỗi: nhánh dưới ngưỡng cho nhóm thiết yếu — thiếu quyền để người dùng kiểm soát cảnh báo.
+- Đã sửa: output không cảnh báo nay luôn nêu người dùng có thể tiếp tục theo dõi, tự điều chỉnh, hoặc bỏ qua/tắt cảnh báo; không đổi benchmark, tiêu chí hay chuẩn đạt.
+- Kết quả: B12 0/1 → 1/1 · tổng 95% → 100%.
+- Câu tệ đi sau sửa: không thấy trong lượt 2; 20/20 câu đạt. Đây là một lượt rerun, không chứng minh độ ổn định qua nhiều lần gọi model.
 
 ## 4. Còn lại
 
-- Lỗi chưa sửa + nguy hiểm thế nào: __
-- Nếu có thêm 1 tuần: __
+- Cần người chấm thứ hai chấm độc lập một mẫu output; dữ liệu và benchmark vẫn synthetic, không suy ra hiệu quả với người dùng thật.
+- Nếu có thêm 1 tuần: lặp lại eval nhiều lần để đo độ ổn định của model và kiểm thử với người dùng ngoài nhóm.
