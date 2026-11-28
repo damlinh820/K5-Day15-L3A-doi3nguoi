@@ -1,0 +1,40 @@
+{
+  "source_sha256": "b90064f9e58656be51820a3921759dbc4357e06a57b997a2a7ff864272b68a4e",
+  "received": 31,
+  "cohort_sizes": {
+    "all_received": 31,
+    "first_22_comparison": 22,
+    "first_24_comparison": 24,
+    "adults_only": 25,
+    "adult_office": 7,
+    "target_profile": 16,
+    "original_target_profile": 3,
+    "target_profile_consistent_app": 14
+  },
+  "exact_answer_duplicate_groups": [],
+  "quality_flags": {
+    "S012": "q06_no_tracking_and_method",
+    "S015": "q06_no_tracking_and_method",
+    "S022": "q09_none_and_difficulty",
+    "S025": "q03_no_usage_and_app | q06_no_tracking_and_method",
+    "S028": "q03_no_usage_and_app",
+    "S029": "q03_no_usage_and_app"
+  },
+  "q19_response_kinds": {
+    "blank": 26,
+    "non_substantive": 5
+  },
+  "first_22_matches_original_plan_counts": true,
+  "profile_definitions": {
+    "target_profile": "18+, reports app use and current budget",
+    "original_target_profile": "target_profile plus office worker",
+    "target_profile_consistent_app": "target_profile without contradictory Q3 app-use answers"
+  },
+  "hypothesis_status": "not_evaluable_from_this_questionnaire",
+  "missing_fields": [
+    "outside_team",
+    "public_quote_consent",
+    "specific_case_in_last_30_days",
+    "review_time_at_least_15_minutes"
+  ]
+}

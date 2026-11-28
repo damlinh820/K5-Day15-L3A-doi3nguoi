@@ -8,14 +8,15 @@ Data BTC cấp: không có. Dữ liệu chạy thử hoàn toàn synthetic; khô
 ## §0. Hiện tại việc này diễn ra thế nào *(guide 1.1)*
 
 - Giả thuyết luồng hiện tại: người dùng đặt ngân sách → phát sinh giao dịch → thỉnh thoảng mở app/bảng tính để cộng → nhận ra gần/vượt ngân sách → tự rà khoản có thể giảm. Luồng này phải được kiểm chứng bằng khảo sát/review, chưa coi là sự thật.
-- Công cụ hiện dùng có thể là tính năng phân loại của app ngân hàng, bảng tính hoặc tự nhớ; nhóm chưa có bằng chứng đủ để kết luận cách nào phổ biến.
+- Công cụ hiện dùng: [MoMo mô tả tính năng quản lý chi tiêu](https://www.momo.vn/quan-ly-chi-tieu), gồm phân loại và cảnh báo gần/vượt ngân sách. Đây là thông tin sản phẩm, không phải bằng chứng người dùng gặp pain. Review R03/R04 trong `evidence/review-quotes.csv` ghi nhận trải nghiệm theo dõi chi tiêu và tra lịch sử trên app; chưa đủ để kết luận cách nào phổ biến hoặc hoàn thiện toàn bộ luồng giả thuyết.
+- Khảo sát thực tế: đã đọc 31 phản hồi cho bộ 19 câu, giữ nguyên 24 dòng cũ. Q6 ghi nhận các cách kiểm số dư, xem lịch sử, ghi nhớ hoặc bảng tính/app; các câu mâu thuẫn Q3/Q6/Q9 được gắn cờ. Phân tích hồ sơ gốc và mở rộng được báo riêng; chưa dùng toàn mẫu để khẳng định luồng phổ biến của persona.
 
 ## §1. Người dùng & bằng chứng *(guide 1.1, 1.2)*
 
-- Người dùng chính: nhân viên văn phòng dùng ví/app ngân hàng và đặt ngân sách theo nhóm chi hằng tháng.
+- Người dùng chính: người từ 18 tuổi dùng ví điện tử/app ngân hàng, có đặt ngân sách theo nhóm chi và cần theo dõi để tránh vượt ngân sách. Đã mở rộng khỏi điều kiện nghề nghiệp sau khi có dữ liệu; hồ sơ nhân viên văn phòng gốc vẫn được giữ để đối chiếu trong `evidence/hypothesis.md` và kết quả khảo sát.
 - Việc họ cố làm: giữ chi tiêu theo nhóm trong ngân sách đến cuối tháng.
 - Pain: thường nhận ra vượt ngân sách muộn và khó xác định khoản nào có thể giảm mà không ảnh hưởng nhu cầu thiết yếu.
-- Bằng chứng CP2: đã soạn form khảo sát ≥20 người đúng vai và kế hoạch đào ≥30 review công khai; chưa phát form, chưa có câu trả lời hoặc tỷ lệ thật. Nguồn voucher gọi xe trước đây đã bị loại khỏi bằng chứng E2.
+- Bằng chứng CP3 (28/11/2026): đã đọc CSV đầy đủ **31 phản hồi** và tạo bản đã ẩn danh trong `evidence/survey/`. Q9 toàn mẫu: quên theo dõi 13/31, khó phân loại 13/31, không biết khoản có thể giảm 11/31, cảnh báo thiếu thông tin 5/31, phát hiện vượt muộn 6/31; Q16 đánh giá minh họa 4–5 là 19/31, không phải hiệu quả thực tế. Theo hồ sơ mở rộng có 16 người khớp thông tin đã hỏi (8/16 quên theo dõi, 6/16 không biết khoản giảm); còn 14 người khi kiểm thêm mâu thuẫn Q3. Hồ sơ nhân viên văn phòng gốc có 3 người, không phải cỡ mẫu của đối tượng mới. Chưa xác minh ngoài nhóm; form không hỏi trường hợp trong 30 ngày hoặc thời gian rà ≥15 phút, nên chưa kiểm tra được ngưỡng giả thuyết. Có 5 trích đoạn review công khai bổ trợ, chưa đủ mẫu 30. Nguồn voucher cũ không dùng cho E2.
 - Kết luận hiện tại: **chưa đủ dữ liệu để kết luận giả thuyết đúng hay sai**. Chi tiết ở `evidence/summary.md`.
 
 ## §2. Impact & quyết định chọn *(guide 1.3)*
@@ -27,6 +28,7 @@ Data BTC cấp: không có. Dữ liệu chạy thử hoàn toàn synthetic; khô
 | Tự động chặn giao dịch khi gần hết ngân sách | Chưa có nguồn | Chưa có nguồn | Rủi ro cao | Chưa tính | Không, có tác động tiền thật | Không |
 
 - Impact hướng chọn = 1 người × 4 lần × 15 phút = **60 phút/người/tháng**, toàn bộ là *(tự ước tính)* và phải thay bằng số khảo sát thật khi có.
+- Cập nhật CP3: CSV thực tế không đo số lần rà chi tiêu/tháng hoặc thời gian rà theo phút, nên chưa thể thay các thừa số trên bằng số quan sát. Các số `x/31` toàn mẫu, `x/16` và `x/14` theo hồ sơ mở rộng mô tả các nhóm khác nhau, không suy ra thời gian tiết kiệm hoặc hiệu quả sản phẩm; review R04 tự báo chờ tải lịch sử 5 phút cũng không phải thời gian rà khoản có thể giảm.
 - Giữ lại hai hướng loại để tránh sửa câu chuyện theo kết quả sau này.
 
 ## §3. Giải pháp tương tự *(guide 2.1)*
@@ -121,3 +123,6 @@ flowchart TD
 | Thời điểm | Đổi gì | Vì sao |
 |---|---|---|
 | 27/11/2026 trước CP2 | Bỏ voucher gọi xe, chuyển sang Track E2 | Voucher gọi xe không thuộc bối cảnh ví/app ngân hàng của Track E; E2 có người dùng dễ tiếp cận hơn. |
+| 28/11/2026 (CP3) | Bổ sung 5 trích đoạn review E2 đã ẩn danh; cập nhật bằng chứng ở Canvas, §0–§2 và `evidence/summary.md` | Cần nguồn nguyên văn theo `plan.md` §2.2; chưa có CSV gốc để đối chiếu 22 phản hồi, nên giữ rõ giới hạn và chưa kết luận đạt ngưỡng. |
+| 28/11/2026 (sau khi nhận CSV) | Ẩn danh và đếm đủ 24 phản hồi; đối chiếu 22 dòng đầu với plan; cập nhật Canvas, §0–§2 và hồ sơ bằng chứng | Bản xuất mới thêm hai dòng; form thực tế 19 câu khác bản soạn và chỉ ba người khớp hồ sơ, nên chưa thể xác nhận đạt ngưỡng pain. |
+| 28/11/2026 (mở rộng đối tượng, CSV đầy đủ) | Đồng bộ Canvas và §1 sang người từ 18 tuổi dùng ví/app và đặt ngân sách, không giới hạn nghề; cập nhật 31 phản hồi, báo nhóm mở rộng 16/14 và giữ nhóm gốc 3 riêng | Lát cắt có thể phục vụ nhiều nghề; thay đổi sau khi có dữ liệu được khai rõ, không sửa ngưỡng gốc. Hai phản hồi trong nhóm 16 cần xác minh mâu thuẫn sử dụng app; không coi toàn bộ 31 phản hồi là đúng persona. |

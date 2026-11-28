@@ -26,3 +26,17 @@ Trạng thái CP2: đã chốt phương pháp trước khi thu mẫu; chưa có 
 - Ít nhất một thành viên thứ hai kiểm lại 10 review; ghi số nhãn khớp thật.
 
 File kết quả dự kiến: `evidence/review-sample.csv`. Chưa có dữ liệu thì không tạo dòng giả.
+
+## Nhật ký thực hiện CP3 — 28/11/2026
+
+- Đã truy cập Apple App Store Việt Nam qua RSS công khai, tối đa 10 trang × 50 review cho mỗi ứng dụng: MoMo (`918751511`), Timo (`1521230347`) và Techcombank Mobile (`1548623362`). Tổng cộng 1.500 review, mỗi ứng dụng 500 ID khác nhau. Đây là phạm vi tìm kiếm, **không phải 1.500 người thuộc mẫu khảo sát**.
+- Code quét từ khóa không dấu về chi tiêu, ngân sách, phân loại, lịch sử, báo cáo, hũ chi tiêu và tổng quan; sau đó đọc nội dung ứng viên. Không lọc theo số sao. Review về đăng nhập, hỗ trợ hoặc chuyển tiền chung không tự động được coi là pain ngân sách.
+- Ngày cập nhật trong tập RSS tải được: MoMo 12–26/11/2026; Timo 13/08/2025–26/11/2026; Techcombank 10/09/2026–26/11/2026. Chỉ dùng review không muộn hơn 27/11/2026 như kế hoạch gốc.
+- MoMo có quá ít nội dung phù hợp trong cửa sổ truy cập, nên tìm thêm Techcombank. Đã chọn **5 ví dụ có nội dung từ Timo và Techcombank**, giữ cả ý kiến tích cực; ID, ngày, sao, trích đoạn nguyên văn và URL trang RSS ở [review-quotes.csv](review-quotes.csv).
+- Mỗi trích đoạn tối đa 25 từ; đã đối chiếu nguyên văn với nguồn, bỏ tên tác giả. Không lưu toàn bộ review tải về hay metadata tác giả vào repo.
+
+**Giới hạn:** đây là 5 ví dụ chọn có chủ đích để bổ trợ trích dẫn, chưa phải mẫu 15 review/ứng dụng theo kế hoạch. Chưa tạo `review-sample.csv`, chưa tính tỷ lệ nhãn và chưa có thành viên thứ hai kiểm độc lập 10 review. Không báo phần đào review đã đạt ngưỡng ≥30 hoặc lấy 5 ví dụ này để khẳng định giả thuyết đã đúng.
+
+Các ví dụ hỗ trợ nhu cầu xem tổng quan/tra lịch sử chi tiêu và cho thấy trải nghiệm trái chiều; không trực tiếp xác nhận việc phát hiện vượt ngân sách muộn hoặc mất ≥15 phút rà khoản có thể giảm. Giữ nguyên nhãn và tiêu chí đã đăng ký ở trên.
+
+Để truy lại nguồn: mở URL RSS của từng dòng, tìm `review_id` trong `entry[].id.label`, rồi so `excerpt` với `entry[].content.label` và số sao với `entry[].im:rating.label`. RSS có thể thay đổi theo review mới; lưu ID và ngày để phân biệt nguồn. `review_updated_at` là thời điểm cập nhật công khai của review, không phải timestamp khảo sát.

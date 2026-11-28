@@ -70,19 +70,21 @@ git status
 
 #### Công việc
 
-- Làm sạch 22 phản hồi khảo sát:
+- Làm sạch bản đầy đủ 31 phản hồi khảo sát, giữ nguyên 24 dòng của bản trước:
   - loại dữ liệu nhận dạng;
   - không đưa email và timestamp lên Git;
   - giữ cả phản hồi không gặp pain;
-  - báo kết quả dạng `x/22`.
-- Tổng hợp tối thiểu các số liệu đã kiểm tra:
-  - 11/22 người quên theo dõi chi tiêu;
-  - 8/22 người khó phân loại giao dịch;
-  - 7/22 người không biết khoản nào có thể cắt giảm;
-  - 4/22 người cho rằng cảnh báo hiện tại chưa đủ thông tin;
-  - 3/22 người phát hiện vượt ngân sách quá muộn;
-  - 14/22 người đánh giá cảnh báo minh họa ở mức 4–5.
-- Thu thêm ít nhất 5 câu nguyên văn có nội dung bằng một trong hai cách:
+  - báo toàn mẫu dạng `x/31`; báo riêng nhóm hồ sơ mở rộng `x/16` và nhóm không mâu thuẫn sử dụng app `x/14`, không tráo mẫu số.
+- Tổng hợp các số liệu đã đếm lại từ bản đầy đủ:
+  - 13/31 người quên theo dõi chi tiêu;
+  - 13/31 người khó phân loại giao dịch;
+  - 11/31 người không biết khoản nào có thể cắt giảm;
+  - 5/31 người cho rằng cảnh báo hiện tại chưa đủ thông tin;
+  - 6/31 người chọn khó khăn phát hiện vượt ngân sách quá muộn ở Q9;
+  - 19/31 người đánh giá cảnh báo minh họa ở mức 4–5; không dùng điểm thích minh họa làm bằng chứng pain hoặc hiệu quả thật.
+- Đồng bộ đối tượng theo Canvas: người từ 18 tuổi dùng ví/app, có đặt ngân sách theo nhóm và cần theo dõi; không giới hạn nghề. Hồ sơ gốc nhân viên văn phòng vẫn có 3 người, giữ để đối chiếu. Số liệu 22 dòng đầu của bản plan cũ được lưu trong `evidence/survey/README.md`; không sửa giả thuyết gốc hoặc chuẩn đạt.
+- Kiểm lại các phản hồi có cờ chất lượng, ưu tiên S025/S028 về sử dụng app; chưa tự coi 16 hoặc 14 người là đã được xác minh ngoài nhóm.
+- Đã có 5 trích đoạn review công khai có nguồn tại `evidence/review-quotes.csv`. Kiểm lại và bổ sung lời kể hành vi thật bằng một trong hai cách:
   - phỏng vấn nhanh ít nhất 3 người; hoặc
   - đào review công khai theo `evidence/data-mining.md`.
 - Không biến lựa chọn trắc nghiệm thành lời trích dẫn do người dùng tự nói.
@@ -249,8 +251,8 @@ python run.py simulate --try
 - [ ] `TEAMS.md` có đủ 4 thành viên và đúng format.
 - [ ] Đã bổ sung họ tên đầy đủ của Trường, MSSV `2A202603378`.
 - [ ] `evidence/summary.md` có nguồn pain đạt ngưỡng.
-- [ ] Có ít nhất 5 trích dẫn hoặc ví dụ nguyên văn đã ẩn danh.
-- [ ] Số liệu khảo sát được báo dạng `x/22`.
+- [x] Có 5 trích đoạn review công khai nguyên văn đã ẩn danh; việc đạt ngưỡng pain vẫn cần đánh giá riêng.
+- [x] Số liệu khảo sát được báo dạng `x/31`, kèm nhóm hồ sơ mở rộng `x/16` và nhóm không mâu thuẫn Q3 `x/14`.
 - [ ] `eval/benchmark.csv` có 20–30 câu.
 - [ ] Có ít nhất 5 câu `kho` và 2 câu `tu_choi`.
 - [ ] Chuẩn đạt trong `spec.md` §7 không bị thay đổi sau CP2.
@@ -268,7 +270,7 @@ python run.py simulate --try
 
 ## 5. Điểm nghẽn cần ưu tiên
 
-1. Khảo sát hiện có 22 phản hồi nhưng chưa có đủ 5 câu nguyên văn có nội dung. Tuân cần ưu tiên phỏng vấn nhanh hoặc đào review công khai.
+1. Khảo sát đầy đủ có 31 phản hồi nhưng chỉ 16 người khớp các trường hồ sơ mở rộng, hoặc 14 nếu kiểm thêm mâu thuẫn Q3; chưa xác minh ngoài nhóm và chưa đo trường hợp trong 30 ngày/thời gian rà ≥15 phút. Đã có 5 review bổ trợ, nhưng chưa đủ mẫu review 30 theo kế hoạch và Q19 khảo sát không có lời kể có nội dung. Tuân ưu tiên xác minh, bổ sung đúng người và trường hợp thực tế; không đổi ngưỡng để kết luận đạt.
 2. Không chạy lượt đánh giá chính thức trước khi Linh xác nhận model thật và token lớn hơn 0.
 3. Không quay video khi hệ thống vẫn hiển thị model `fake`.
 4. Chưa được thêm Trường vào `TEAMS.md` cho đến khi có họ tên đầy đủ để tránh sai thông tin thành viên.
