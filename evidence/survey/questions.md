@@ -1,10 +1,14 @@
 # Khảo sát theo dõi ngân sách trên ví/app ngân hàng
 
-Phụ trách: Ngô Văn Tuân · Track E2 · Trạng thái: đã soạn, chưa tạo/publish và chưa có phản hồi.
+Phụ trách: Ngô Văn Tuân · Track E2.
+
+**Đối chiếu ngày 28/11/2026:** file này lưu **bản thiết kế 10 câu**, không phải bộ câu hỏi thực tế đã thu phản hồi. CSV đầy đủ mới có **31 phản hồi cho 19 câu khác**, giữ nguyên 24 dòng của bản trước; nguyên câu hỏi ở [questions-actual.csv](questions-actual.csv), kết quả và giới hạn ở [README.md](README.md). Những câu đồng thuận, sàng lọc hoặc kể trường hợp trong bản thiết kế dưới đây không được coi là đã hỏi người trả lời của bản CSV.
 
 ## Đối tượng và đồng thuận
 
-Chỉ tính người ngoài nhóm, từ 18 tuổi, đã dùng ví điện tử/app ngân hàng và có theo dõi hoặc đặt ngân sách trong 30 ngày qua. Không thu tên, email, số dư, số tài khoản, lịch sử giao dịch hoặc ảnh sao kê.
+Đối tượng hiện tại theo Canvas là người ngoài nhóm, từ 18 tuổi, dùng ví điện tử/app ngân hàng, có đặt ngân sách theo nhóm chi và cần theo dõi để tránh vượt ngân sách; không giới hạn nghề nghiệp. Khi thu bổ sung cần hỏi rõ trường hợp trong 30 ngày qua và thời gian rà chi tiêu để đối chiếu giả thuyết. Không thu tên, email, số dư, số tài khoản, lịch sử giao dịch hoặc ảnh sao kê.
+
+Mười câu dưới đây là bản thiết kế cũ để đối chiếu; nếu dùng lại cần rà sàng lọc theo định nghĩa hiện tại. Không sửa câu trả lời hoặc tự coi những điều kiện chưa hỏi ở form thực tế là đã được đáp ứng.
 
 ## Mười câu hỏi
 

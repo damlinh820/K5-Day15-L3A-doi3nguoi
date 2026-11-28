@@ -4,3 +4,9 @@ OLD-S02,excluded,"Nguồn subsidy gọi xe trước khi chuyển sang E2",https:
 OLD-S03,excluded,"Nguồn promotion du lịch trước khi chuyển sang E2",https://ceur-ws.org/Vol-2959/paper2.pdf
 OLD-S04,excluded,"Nguồn vận hành campaign trước khi chuyển sang E2",https://engineering.grab.com/supporting-large-campaigns-at-scale
 OLD-S05,excluded,"Nguồn causal treatment trước khi chuyển sang E2",https://www.uber.com/us/en/blog/causal-inference-at-uber/
+E2-P01,product_context,"MoMo mô tả quản lý chi tiêu và cảnh báo ngân sách; không coi nội dung sản phẩm là bằng chứng pain",https://www.momo.vn/quan-ly-chi-tieu
+E2-R01,supporting_review,"Techcombank: ví dụ nguyên văn R01 về biểu đồ thu chi; review ID 14827102118; không xác nhận ngưỡng giả thuyết",https://itunes.apple.com/vn/rss/customerreviews/page=1/id=1548623362/sortby=mostrecent/json
+E2-R02,supporting_review,"Techcombank: ví dụ nguyên văn R02 về tổng quan chi tháng; review ID 14750876903; không xác nhận ngưỡng giả thuyết",https://itunes.apple.com/vn/rss/customerreviews/page=4/id=1548623362/sortby=mostrecent/json
+E2-R03,supporting_review,"Techcombank: ví dụ tích cực R03; review ID 14648284932; không phải lời kể gặp pain",https://itunes.apple.com/vn/rss/customerreviews/page=7/id=1548623362/sortby=mostrecent/json
+E2-R04,supporting_review,"Timo: ví dụ R04 chờ tải lịch sử; review ID 14809257513; không đồng nghĩa mất 15 phút rà chi tiêu",https://itunes.apple.com/vn/rss/customerreviews/page=3/id=1521230347/sortby=mostrecent/json
+E2-R05,supporting_review,"Timo: ví dụ R05 đề nghị tổng chi theo ngày; review ID 14531428145; yêu cầu tính năng chưa chứng minh pain",https://itunes.apple.com/vn/rss/customerreviews/page=4/id=1521230347/sortby=mostrecent/json

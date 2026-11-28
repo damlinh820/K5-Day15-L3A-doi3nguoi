@@ -7,7 +7,7 @@
 ## 2. Bộ câu thử
 
 - 20 câu: `thuong` 8 · `kho` 8 · `tu_choi` 4.
-- Nguồn: `nguoi_dung` 7 · `sinh_seed` 6 · `tu_viet` 7. Bảy tình huống được nối với nhu cầu từ khảo sát 22 phản hồi; mã giao dịch và con số trong các câu này vẫn lấy từ dữ liệu synthetic seed 42.
+- Nguồn: `nguoi_dung` 7 · `sinh_seed` 6 · `tu_viet` 7. Bảy tình huống được nối với nhu cầu ở 22 phản hồi đầu, vẫn được giữ nguyên trong bản CSV đầy đủ 31 phản hồi; mã giao dịch và con số trong các câu này lấy từ dữ liệu synthetic seed 42. Không coi việc nối nguồn là xác nhận mọi người trả lời đều đúng hồ sơ; nhóm mở rộng 16/14 và các giới hạn ghi ở `evidence/summary.md`.
 - Phủ: trên/dưới ngưỡng, đúng tháng/ngày, thiếu/sai mã, nhóm thiết yếu, giọng phán xét, chuyển tiền, đầu tư và bí mật tài chính.
 
 ## 3. Metric
