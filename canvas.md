@@ -8,5 +8,5 @@
 | 4 | Bằng chứng đầu | CP2: đã soạn Google Form khảo sát ≥20 người dùng ví/app ngân hàng và kế hoạch đào ≥30 review công khai; chưa mở form, chưa có phản hồi hay tỷ lệ pain, nên chưa kết luận giả thuyết đúng. |
 | 5 | **Lát cắt MỘT CÂU** | Khi một giao dịch mới làm nhóm chi chạm 80% ngân sách trong tháng, code bật cảnh báo; AI chọn 2–3 khoản không thiết yếu từ lịch sử synthetic để gợi ý giảm; người dùng quyết định làm theo, bỏ qua hoặc tắt cảnh báo. |
 | 6 | AI tự làm đến đâu + lý do | AI chỉ diễn đạt và chọn gợi ý từ danh sách code cung cấp; code cộng tiền và bật cảnh báo, người dùng quyết định vì gợi ý sai có thể ảnh hưởng nhu cầu thiết yếu. |
-| 7 | Phân công có tên | Đàm Tuấn Linh: điều phối, lát cắt, kiến trúc và an toàn; Ngô Văn Tuân: khảo sát/review và metric; Nguyễn Nho Trọng: dữ liệu synthetic, code và benchmark. |
+| 7 | Phân công có tên | Đàm Tuấn Linh: điều phối, lát cắt, kiến trúc và an toàn; Ngô Văn Tuân: khảo sát/review và metric; Nguyễn Nho Trọng: dữ liệu synthetic, code và benchmark; [Họ tên đầy đủ của Trường]: tài liệu CP3, kiểm thử bàn giao và video demo. |
 | — | *(CP2)* Đã đổi gì so với CP1 | Bỏ bài toán voucher gọi xe vì không đúng bối cảnh Track E; chuyển sang E2 đúng ví/app ngân hàng. Làm lại người dùng, pain, dữ liệu, workflow và bộ câu thử; không dùng nguồn voucher cũ làm bằng chứng E2. |

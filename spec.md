@@ -117,6 +117,7 @@ flowchart TD
 - Đàm Tuấn Linh: điều phối, lát cắt, kiến trúc, an toàn và chốt chuẩn đạt.
 - Ngô Văn Tuân: khảo sát/review, bằng chứng và metric.
 - Nguyễn Nho Trọng: dữ liệu synthetic, code, benchmark và demo.
+- [Họ tên đầy đủ của Trường]: tài liệu CP3, kiểm thử bàn giao và video demo.
 
 | Thời điểm | Đổi gì | Vì sao |
 |---|---|---|
