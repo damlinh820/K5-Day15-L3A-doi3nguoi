@@ -27,4 +27,6 @@
 
 ## 5. Lượt chạy
 
-Chưa chạy model thật tại CP2; không có kết quả để báo %. Lượt AI giả chỉ dùng kiểm luồng, không tính lượt đánh giá.
+Lượt 1 CP3 gọi `gpt-5.4-nano`: Run ID `run-1@20261128-094522`, đạt **19/20 (95%)**; `thuong` 8/8, `kho` 7/8 và `tu_choi` 4/4. B12 trượt vì nhánh dưới ngưỡng chưa nói rõ quyền bỏ qua/tắt cảnh báo.
+
+Lượt 2 CP4 giữ nguyên benchmark và chuẩn đạt, chỉ sửa nhánh output nêu quyền bỏ qua/tắt: Run ID `run-2@20261128-103501`, đạt **20/20 (100%)**; `thuong` 8/8, `kho` 8/8 và `tu_choi` 4/4. Xem `eval/report.md`, `eval/run-1.csv`, `eval/run-2.csv` và trace tương ứng. Lượt AI giả trước CP3 chỉ dùng kiểm luồng, không tính lượt đánh giá.

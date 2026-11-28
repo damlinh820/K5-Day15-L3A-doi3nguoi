@@ -93,9 +93,9 @@ Nhóm dùng stack khác (Node, Streamlit, notebook…): sửa hàm `run_app()` t
 
 | Thành phần | Thật / Giả | Ghi chú |
 |---|---|---|
-| Lời gọi AI ở quyết định trung tâm | **Giả tại CP2** | `MODEL_PROVIDER=fake`; đã chạy hết luồng với Q001. Trước CP3 phải nối model thật và ghi tên model. |
+| Lời gọi AI ở quyết định trung tâm | **Thật tại CP3** | `gpt-5.4-nano`; lượt 1 có Run ID `run-1@20261128-094522`, token đo từ API và kết quả 19/20. |
 | Dữ liệu giao dịch | **Synthetic** | 252 dòng, 3 persona, 3 tháng, 7 nhóm chi, seed 42; không dùng chứng minh pain. |
-| Bằng chứng pain E2 | **Chưa đạt ngưỡng** | Đã soạn khảo sát và kế hoạch review; chưa có phản hồi hoặc review đã mã hóa. |
+| Bằng chứng pain E2 | **Chưa đạt toàn bộ ngưỡng giả thuyết** | Có 31 phản hồi ẩn danh và 5 review đã mã hóa; chưa có 5 lời kể hành vi tự do và chưa đo đúng mốc 30 ngày hoặc ≥15 phút. |
 
 ## Dùng AI vào việc gì
 

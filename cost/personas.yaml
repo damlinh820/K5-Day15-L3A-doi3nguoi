@@ -8,44 +8,43 @@
 sessions: 50        # số phiên mô phỏng — bản nộp ≥50
 seed: 42            # giữ cố định để chạy lại ra cùng chuỗi phiên
 
-users:              # số người dùng thật nếu đưa vào dùng — 3 kịch bản, ở quy mô thật của sản phẩm
-                    # track A: khoá học · track B–F: người dùng của sản phẩm / nhóm nhắm tới, nguồn công khai có link
-  low: 300
-  base: 700
+users:              # số người dùng nếu đưa vào dùng — 3 kịch bản, chưa phải số người dùng đo được
+  low: 100
+  base: 500
   high: 1000
-  source: "(ví dụ) track A — thay bằng số của nhóm. Cơ sở: lớp L3 hơn 700 học viên (README hackathon); thấp, cao: (tự ước tính)"
+  source: "Tự ước tính CP4: prototype chưa có số người dùng thật; chỉ dùng để phân tích độ nhạy, không khẳng định quy mô thị trường."
 
 personas:           # ≥3 kiểu người dùng; share cộng lại = 1
   - name: dung_it
-    share: 0.5              # tỉ lệ người dùng kiểu này
-    uses_per_month: 4       # số phiên / người / tháng
+    share: 0.5
+    uses_per_month: 2
     turns_per_session: 1    # số lượt hỏi trong một phiên
-    source: "(ví dụ) phỏng vấn P1, P3 — thay bằng nguồn của nhóm"
+    source: "Tự ước tính CP4: persona ít theo dõi; chưa có dữ liệu tần suất thực."
   - name: dung_vua
     share: 0.3
-    uses_per_month: 10
+    uses_per_month: 6
     turns_per_session: 3
-    source: "(ví dụ) khảo sát n = 24, câu 3"
+    source: "Tự ước tính CP4: persona theo dõi định kỳ; chưa có dữ liệu tần suất thực."
   - name: dung_nhieu
     share: 0.2
-    uses_per_month: 20
+    uses_per_month: 15
     turns_per_session: 5
-    source: "(ví dụ) data/preclass: đếm số lượt / người — cách đếm ở evidence/data-mining.md"
+    source: "Tự ước tính CP4: persona theo dõi thường xuyên; chưa có dữ liệu tần suất thực."
 # Mỗi lượt hỏi lấy ngẫu nhiên một đầu vào trong eval/benchmark.csv (type thuong và kho).
 # Persona hỏi kiểu riêng: thêm vào persona đó
 #     types: [thuong, kho, tu_choi]
 # hoặc
 #     inputs: ["câu hỏi kiểu 1", "câu hỏi kiểu 2"]
 
-prices:             # USD / 1 triệu token — chép từ further-reading/model-prices.md của repo đề. ≥2 mức model
-  - model: gemini-3.1-flash-lite
-    input: 0.25
-    output: 1.50
-    source: "(ví dụ) https://ai.google.dev/gemini-api/docs/pricing · xem 25/11/2026"
-  - model: gemini-4-hydrogen
-    input: 1.50
-    output: 7.50
-    source: "(ví dụ) https://ai.google.dev/gemini-api/docs/pricing · xem 25/11/2026"
+prices:             # USD / 1 triệu token
+  - model: gpt-5.4-nano
+    input: 0.20
+    output: 1.25
+    source: "OpenAI API docs, https://developers.openai.com/api/docs/models/gpt-5.4-nano, xem 28/11/2026"
+  - model: gpt-5.4-mini
+    input: 0.75
+    output: 4.50
+    source: "OpenAI, https://openai.com/index/introducing-gpt-5-4-mini-and-nano/, xem 28/11/2026"
 
 usd_to_vnd:         # tuỳ chọn: điền thì bản tóm tắt in thêm tiền Việt
   rate:
