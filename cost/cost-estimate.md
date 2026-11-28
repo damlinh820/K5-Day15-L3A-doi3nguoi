@@ -25,9 +25,9 @@ Chi phí / task thành công = chi phí trung bình mỗi phiên ÷ tỉ lệ đ
 
 ## 3. So với impact
 
-- Impact / người / tháng (`spec.md` §2): 60 phút *(tự ước tính)*; chưa có số đo thực tế.
+- Impact tiết kiệm do sản phẩm (`spec.md` §2): **chưa đo**. Bản tóm tắt phỏng vấn P1–P3 được Tuân xác nhận cho phép ước lượng tải rà 20–50 phút/người/tháng từ tần suất × thời gian tự báo. Không coi toàn bộ tải này là thời gian AI tiết kiệm.
 - Chi phí / người / tháng (cơ sở, `gpt-5.4-nano`): $0,0046 theo giả định persona và quy mô nêu trên.
-- **Kết luận một dòng — đáng làm không:** chi phí model mô phỏng thấp, nhưng chưa thể kết luận giá trị sản phẩm vì impact và tần suất đều chưa được đo trên người dùng thật.
+- **Kết luận một dòng — đáng làm không:** chi phí model mô phỏng thấp, nhưng chưa thể kết luận giá trị sản phẩm vì lợi ích tiết kiệm và tần suất phiên cảnh báo chưa được đo; số lần người dùng tự rà chi tiêu không thay trực tiếp các giả định mô phỏng.
 
 ## 4. *(Muốn sâu hơn, không bắt buộc)*
 

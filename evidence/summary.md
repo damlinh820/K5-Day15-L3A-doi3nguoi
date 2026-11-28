@@ -12,7 +12,7 @@ Link bảng do nhóm cung cấp: [Google Sheets khảo sát](https://docs.google
 |---|---|---|
 | Khảo sát E2 | Đã đọc CSV đầy đủ có **31 phản hồi**, giữ nguyên 24 dòng cũ. Bản đã ẩn danh và cách đếm ở [survey/README.md](survey/README.md). | Có 25 người từ 18 tuổi; **16 người khớp các thông tin đã hỏi của hồ sơ mở rộng**; trong đó 2 người mâu thuẫn ở Q3 nên báo thêm nhóm 14 người. Hồ sơ nhân viên văn phòng gốc vẫn có 3. Chưa xác nhận ngoài nhóm/30 ngày; không coi 31 phản hồi là mẫu đúng persona. |
 | Review công khai E2 | Đã đối chiếu 5 trích đoạn từ 5 review App Store Timo/Techcombank, gồm ý kiến tích cực và phàn nàn. | Là ví dụ bổ trợ có chủ đích; chưa đủ mẫu 30 review theo kế hoạch. |
-| Phỏng vấn | Chưa có biên bản để kiểm tra. | Không tạo người hoặc lời phỏng vấn giả. |
+| Phỏng vấn bổ sung | Tuân xác nhận team phỏng vấn **3 người ngoài nhóm sáng 28/11/2026**, được đồng ý dùng nội dung ẩn danh. Có [P1–P3](interviews/README.md), 6 trích đoạn từ bản tóm tắt; 2/3 nêu rà ≥15 phút, giữ P3 không gặp phát hiện muộn. | Đủ số lượng của hướng bằng chứng phỏng vấn ≥3 người ngoài nhóm. Nguồn là **bản tóm tắt**, không nhận 6 đoạn là lời nói nguyên văn; chưa biết trùng người khảo sát, không cộng mẫu. |
 
 ### 2. Số liệu đã đếm lại từ CSV
 
@@ -93,19 +93,35 @@ Nguyên văn chỉ lưu một lần tại [review-quotes.csv](review-quotes.csv)
 
 URL RSS và review ID từng trường hợp nằm trong CSV. Cách tìm và giới hạn mẫu ghi ở [data-mining.md](data-mining.md). Chưa có thành viên thứ hai kiểm tra độc lập.
 
+### 3.1. Ghi chép phỏng vấn do Tuân bổ sung
+
+Nguồn nhận ngày 28/11/2026: `khaosat.txt`, không có tên/liên hệ người tham gia. Tuân xác nhận team thực hiện phỏng vấn sáng cùng ngày, cả ba ngoài nhóm và đã đồng ý dùng nội dung ẩn danh. Bản trong repo chỉ giữ vai, tuổi từ 18 và nội dung cần phân tích; lược số tiền cụ thể, không đưa file gốc lên Git. Sáu đoạn ở [interviews/quotes.csv](interviews/quotes.csv) khớp **bản tóm tắt của team**, không phải lời nói nguyên văn. Nguyên văn trực tiếp từ nguồn công khai vẫn là 5 review ở mục 3.
+
+| Mã | Vai theo nguồn | Trường hợp gần nhất | Phút rà tự báo | Lần/tháng tự báo | Ước lượng tải rà/tháng |
+|---|---|---|---|---|---|
+| [P1](interviews/P1.md) | Sinh viên, từ 18 tuổi; MoMo/MB Bank | Khoảng tuần trước, nhóm ăn uống gần hết ngân sách | Khoảng 15 | Khoảng 3 | 45 phút |
+| [P2](interviews/P2.md) | Nhân viên văn phòng, từ 18 tuổi; Techcombank/ZaloPay | Khoảng 5 ngày trước, mua sắm đã vượt ngân sách | Khoảng 20–25 | Khoảng 2 | 40–50 phút |
+| [P3](interviews/P3.md) | Nhân viên kinh doanh, từ 18 tuổi; Vietcombank/MoMo | Hôm kia, kiểm tra định kỳ, chưa vượt | Khoảng 5–10 | Khoảng 4 | 20–40 phút |
+
+Theo mô tả, cả ba phù hợp hồ sơ mở rộng; chỉ P2 phù hợp điều kiện nghề nghiệp gốc. **2/3 người theo bản tóm tắt nêu một lần rà ≥15 phút trong 30 ngày qua**. Giữ P3 làm trường hợp không xác nhận pain phát hiện muộn hoặc mất ≥15 phút. Không dùng tỷ lệ % cho mẫu nhỏ, không gộp thành 34 người hay cộng vào nhóm 16/14 vì chưa biết có trùng người khảo sát hay không.
+
+Thời điểm tương đối được tính theo sáng phỏng vấn 28/11/2026 đã được xác nhận; không tự bịa ngày sự kiện chính xác. Tải rà là tần suất × thời gian một lần tự báo, không phải tổng thời gian cả tháng đã đo, cũng không phải số phút prototype tiết kiệm.
+
 ### 4. Đối chiếu giả thuyết và impact
 
 Ngưỡng giữ nguyên theo [hypothesis.md](hypothesis.md): ≥20 phản hồi hợp lệ, ít nhất 8 người kể trường hợp trong 30 ngày qua phát hiện gần/vượt ngân sách muộn **hoặc** mất ≥15 phút rà khoản có thể giảm, cùng ≥5 trích dẫn nguyên văn về hành vi thật.
 
 **Kết luận hiện tại: chưa đủ dữ liệu để xác nhận đạt ngưỡng pain.** Hồ sơ gốc vẫn có 3 người; hồ sơ mở rộng có 16 người khớp các thông tin đã hỏi, hoặc 14 nếu kiểm thêm mâu thuẫn Q3; đều chưa đủ 20 và chưa xác minh ngoài nhóm. Form không hỏi trường hợp cụ thể trong 30 ngày hoặc thời gian rà ≥15 phút, nên không thể tính đúng hợp số người thỏa giả thuyết. Q7 dùng mốc ba tháng, Q8 hỏi thói quen và Q11 không hỏi số phút; 8/16 quên theo dõi không phải 8 trường hợp thỏa điều kiện gốc. Năm review bổ trợ không trực tiếp xác nhận ngưỡng kể trên. Việc mở rộng đối tượng được ghi sau khi đã thu dữ liệu, không thay kết quả kiểm chứng của giả thuyết ban đầu.
 
-Chưa có số thật về tần suất công việc và thời gian có thể tiết kiệm để thay giả định impact 60 phút/người/tháng trong `spec.md` §2. Không lấy mức thích cảnh báo minh họa, thời gian app tải chậm hay dữ liệu synthetic làm lợi ích đã đo của sản phẩm. Không kết luận giả thuyết sai chỉ vì form chưa đo được các điều kiện cần kiểm chứng.
+Nguồn phỏng vấn bổ sung đã được Tuân xác nhận và **đủ số lượng 3 người ngoài nhóm theo hướng phỏng vấn của bài**; cùng 5 review công khai nguyên văn được lưu riêng. Ba cặp tần suất/thời gian tự báo cho tải rà ước lượng 20–50 phút/người/tháng. Không lấy 2/3 trường hợp để thay điều kiện ≥20 người, ≥8 trường hợp của giả thuyết khảo sát gốc. Không nhận 6 đoạn từ bản tóm tắt là ≥5 lời nói nguyên văn của người tham gia.
+
+Đã thay giả định 60 phút/người/tháng không có nguồn bằng bảng tải công việc có ghi rõ nguồn tự báo trong `spec.md` §2; **lợi ích tiết kiệm do prototype vẫn chưa được đo**. Không lấy mức thích cảnh báo minh họa, thời gian app tải chậm hoặc dữ liệu synthetic làm lợi ích thật. Không kết luận giả thuyết sai chỉ vì form chưa đo được các điều kiện cần kiểm chứng.
 
 ### 5. Phần cần bổ sung để chốt bàn giao
 
 1. Đã làm: đọc file đầy đủ ngoài repo, xuất bản đã ẩn danh, đếm đủ 31 dòng, giữ đối chiếu mốc 22/24, đồng bộ đối tượng hiện tại và báo riêng hồ sơ gốc/mở rộng.
 2. Tuân kiểm lại sáu dòng đã gắn cờ, ưu tiên S025/S028 về sử dụng app; xác nhận kênh tuyển người ngoài nhóm và điều kiện sử dụng lời kể công khai. Không tự coi các trường chưa hỏi là đã được đáp ứng.
-3. Bổ sung đúng người dùng và câu hỏi về trường hợp trong 30 ngày, thời gian rà chi tiêu; giữ nguyên ngưỡng gốc, không đổi persona sau khi thấy dữ liệu để đủ mẫu.
+3. Đã bổ sung nguồn phỏng vấn 3 người ngoài nhóm sáng 28/11/2026 theo xác nhận của Tuân, có đồng thuận dùng bản tóm tắt ẩn danh. Giữ trạng thái nguồn riêng và giới hạn khảo sát; nếu cần trích trực tiếp lời nói phải có lời nguyên văn từ người tham gia hoặc bản ghi được phép dùng.
 4. Tuân kiểm lại 5 nguồn review; nguồn bổ sung không thay được ngưỡng khảo sát. Nếu tiếp tục đào mẫu 30 review, giữ cách chọn mẫu/nhãn gốc và nhờ thành viên thứ hai kiểm độc lập.
 
 ## Hồ sơ tại CP2 — giữ để phân biệt tiến độ

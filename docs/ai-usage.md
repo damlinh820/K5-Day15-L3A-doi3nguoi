@@ -11,6 +11,7 @@ README của nhóm có mục "Dùng AI vào việc gì" (2–3 dòng, bắt bu�
 | Đào data | Codex | Soạn kế hoạch, đọc RSS App Store công khai và đối chiếu 5 trích đoạn review E2; chưa hoàn thành mẫu 30 review theo kế hoạch | Ngô Văn Tuân kiểm lại nguồn và giới hạn; chưa có lượt kiểm độc lập 10 review | Ngô Văn Tuân |
 | Rà câu hỏi khảo sát | Codex | Soạn 10 câu hỏi hành vi E2 và Apps Script tạo form | Ngô Văn Tuân duyệt, tạo form và chỉ ghi câu trả lời thật | Ngô Văn Tuân |
 | Xử lý khảo sát | Codex | Đọc CSV thật 31 phản hồi do Tuân cung cấp, viết script ẩn danh/đếm lại; giữ các mốc 22/24 và tách hồ sơ gốc, hồ sơ mở rộng 16/14 | Ngô Văn Tuân kiểm dữ liệu, xác minh các cờ mâu thuẫn và điều kiện ngoài nhóm; không coi lựa chọn trắc nghiệm là lời phỏng vấn | Ngô Văn Tuân |
+| Tổng hợp ghi chép phỏng vấn | Codex | Tách P1–P3 từ `khaosat.txt`, lược tuổi/số tiền cụ thể, đối chiếu 6 trích đoạn và tính tải rà từ số tự báo; không tạo người hoặc câu trả lời | Ngô Văn Tuân xác nhận team phỏng vấn sáng 28/11, ngoài nhóm và đồng thuận; nguồn là tóm tắt nên không nhận trích đoạn là lời nói nguyên văn | Ngô Văn Tuân |
 | Viết câu thử | Codex | Soạn 20 tình huống và pass criterion | Nguyễn Nho Trọng kiểm chéo; bổ sung câu từ dữ liệu thật trước CP3 | Nguyễn Nho Trọng |
 | Sinh data `synthetic` | Codex | Soạn script sinh 252 giao dịch, 3 persona, seed 42 | Nguyễn Nho Trọng kiểm tay edge case và số dòng | Nguyễn Nho Trọng |
 | Chấm cột `pass` bằng LLM (nếu có) | | | Kiểm tra thủ công __ câu thử, khớp __/__ | |

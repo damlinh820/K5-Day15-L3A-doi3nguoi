@@ -70,3 +70,5 @@ Q8 hỏi thời điểm thường nhận ra vượt ngân sách, có 5/31 chọn
 ## Bàn giao cho Tuân/Linh
 
 Tuân kiểm lại các dòng đã gắn cờ và xác nhận kênh tuyển người ngoài nhóm. Muốn kiểm chứng ngưỡng đã đăng ký cần bổ sung đúng người dùng, trường hợp cụ thể trong 30 ngày và thời gian rà chi tiêu; xin đồng thuận trước khi dùng lời kể nguyên văn. Năm review công khai ở `evidence/review-quotes.csv` là nguồn bổ trợ, không thay việc xác minh mẫu hoặc điều kiện của giả thuyết.
+
+Cập nhật bổ sung: đã có nguồn [phỏng vấn 3 người ngoài nhóm](../interviews/README.md) sáng 28/11/2026 được Tuân xác nhận. Đây là bản tóm tắt do team thực hiện, không sửa các câu trả lời CSV hoặc nhận sáu trích đoạn tóm tắt là lời nói nguyên văn. Giữ kết luận giới hạn khảo sát và các cỡ mẫu nguyên trạng.

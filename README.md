@@ -95,7 +95,7 @@ Nhóm dùng stack khác (Node, Streamlit, notebook…): sửa hàm `run_app()` t
 |---|---|---|
 | Lời gọi AI ở quyết định trung tâm | **Thật tại CP3** | `gpt-5.4-nano`; lượt 1 có Run ID `run-1@20261128-094522`, token đo từ API và kết quả 19/20. |
 | Dữ liệu giao dịch | **Synthetic** | 252 dòng, 3 persona, 3 tháng, 7 nhóm chi, seed 42; không dùng chứng minh pain. |
-| Bằng chứng pain E2 | **Chưa đạt toàn bộ ngưỡng giả thuyết** | Có 31 phản hồi ẩn danh và 5 review đã mã hóa; chưa có 5 lời kể hành vi tự do và chưa đo đúng mốc 30 ngày hoặc ≥15 phút. |
+| Bằng chứng pain E2 | **Có nguồn phỏng vấn bổ sung; giả thuyết khảo sát chưa kiểm chứng đầy đủ** | Có 31 phản hồi ẩn danh, 5 review nguyên văn và bản tóm tắt phỏng vấn 3 người ngoài nhóm sáng 28/11 được Tuân xác nhận, có đồng thuận dùng nội dung ẩn danh. Không nhận 6 đoạn tóm tắt là lời nói nguyên văn, không gộp mẫu hoặc coi ngưỡng khảo sát cũ đã được xác nhận. |
 
 ## Dùng AI vào việc gì
 

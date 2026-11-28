@@ -1,0 +1,4 @@
+participant_id,adult_status,role_group,apps,case_time_relative,review_minutes_low,review_minutes_high,reviews_per_month,monthly_review_minutes_low,monthly_review_minutes_high,time_at_least_15,late_discovery,source_record,outside_team,interview_date,speaker_verbatim_status,publication_consent
+P1,18_plus,student,MoMo | MB Bank,last_week,15,15,3,45,45,yes,near_budget_only,P1.md,confirmed_by_tuan,2026-11-28_morning_UTC+7,team_summary_not_verbatim,confirmed_by_tuan_for_anonymous_summary
+P2,18_plus,office,Techcombank | ZaloPay,about_5_days_ago,20,25,2,40,50,yes,already_over_budget,P2.md,confirmed_by_tuan,2026-11-28_morning_UTC+7,team_summary_not_verbatim,confirmed_by_tuan_for_anonymous_summary
+P3,18_plus,business,Vietcombank | MoMo,day_before_yesterday,5,10,4,20,40,no,no,P3.md,confirmed_by_tuan,2026-11-28_morning_UTC+7,team_summary_not_verbatim,confirmed_by_tuan_for_anonymous_summary

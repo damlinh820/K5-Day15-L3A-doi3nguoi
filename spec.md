@@ -10,6 +10,7 @@ Data BTC cấp: không có. Dữ liệu chạy thử hoàn toàn synthetic; khô
 - Giả thuyết luồng hiện tại: người dùng đặt ngân sách → phát sinh giao dịch → thỉnh thoảng mở app/bảng tính để cộng → nhận ra gần/vượt ngân sách → tự rà khoản có thể giảm. Luồng này phải được kiểm chứng bằng khảo sát/review, chưa coi là sự thật.
 - Công cụ hiện dùng: [MoMo mô tả tính năng quản lý chi tiêu](https://www.momo.vn/quan-ly-chi-tieu), gồm phân loại và cảnh báo gần/vượt ngân sách. Đây là thông tin sản phẩm, không phải bằng chứng người dùng gặp pain. Review R03/R04 trong `evidence/review-quotes.csv` ghi nhận trải nghiệm theo dõi chi tiêu và tra lịch sử trên app; chưa đủ để kết luận cách nào phổ biến hoặc hoàn thiện toàn bộ luồng giả thuyết.
 - Khảo sát thực tế: đã đọc 31 phản hồi cho bộ 19 câu, giữ nguyên 24 dòng cũ. Q6 ghi nhận các cách kiểm số dư, xem lịch sử, ghi nhớ hoặc bảng tính/app; các câu mâu thuẫn Q3/Q6/Q9 được gắn cờ. Phân tích hồ sơ gốc và mở rộng được báo riêng; chưa dùng toàn mẫu để khẳng định luồng phổ biến của persona.
+- Ghi chép bổ sung P1/P2 mô tả mở lịch sử nhiều app, tự rà/cộng khoản và điều chỉnh ăn uống hoặc mua sắm; P3 kiểm tra định kỳ và vẫn trong ngân sách. Đây là ba trường hợp do Tuân cung cấp, không phải luồng phổ biến đã đo; trạng thái nguồn ở `evidence/interviews/README.md`.
 
 ## §1. Người dùng & bằng chứng *(guide 1.1, 1.2)*
 
@@ -17,18 +18,20 @@ Data BTC cấp: không có. Dữ liệu chạy thử hoàn toàn synthetic; khô
 - Việc họ cố làm: giữ chi tiêu theo nhóm trong ngân sách đến cuối tháng.
 - Pain: thường nhận ra vượt ngân sách muộn và khó xác định khoản nào có thể giảm mà không ảnh hưởng nhu cầu thiết yếu.
 - Bằng chứng CP3 (28/11/2026): đã đọc CSV đầy đủ **31 phản hồi** và tạo bản đã ẩn danh trong `evidence/survey/`. Q9 toàn mẫu: quên theo dõi 13/31, khó phân loại 13/31, không biết khoản có thể giảm 11/31, cảnh báo thiếu thông tin 5/31, phát hiện vượt muộn 6/31; Q16 đánh giá minh họa 4–5 là 19/31, không phải hiệu quả thực tế. Theo hồ sơ mở rộng có 16 người khớp thông tin đã hỏi (8/16 quên theo dõi, 6/16 không biết khoản giảm); còn 14 người khi kiểm thêm mâu thuẫn Q3. Hồ sơ nhân viên văn phòng gốc có 3 người, không phải cỡ mẫu của đối tượng mới. Chưa xác minh ngoài nhóm; form không hỏi trường hợp trong 30 ngày hoặc thời gian rà ≥15 phút, nên chưa kiểm tra được ngưỡng giả thuyết. Có 5 trích đoạn review công khai bổ trợ, chưa đủ mẫu 30. Nguồn voucher cũ không dùng cho E2.
-- Kết luận hiện tại: **chưa đủ dữ liệu để kết luận giả thuyết đúng hay sai**. Chi tiết ở `evidence/summary.md`.
+- Phỏng vấn bổ sung: Tuân xác nhận team phỏng vấn 3 người ngoài nhóm sáng 28/11/2026 và được đồng ý sử dụng nội dung ẩn danh. Bản `khaosat.txt` là **tóm tắt**, 6 đoạn trích không phải lời nói nguyên văn. P1 tự báo rà khoảng 15 phút × 3 lần/tháng; P2 khoảng 20–25 phút × 2; P3 khoảng 5–10 phút × 4 và không phát hiện vượt muộn. Cả ba phù hợp hồ sơ mở rộng; đủ số lượng hướng phỏng vấn ≥3 ngoài nhóm. Không cộng vào CSV hoặc suy rộng 2/3 thành điều kiện ≥8/20 của giả thuyết gốc; 5 review nguyên văn lưu riêng để bổ trợ.
+- Kết luận hiện tại: phỏng vấn bổ sung hỗ trợ một phần vấn đề rà chi tiêu tốn thời gian, giữ cả trường hợp không gặp pain; **chưa xác nhận toàn bộ giả thuyết khảo sát gốc**. Chi tiết ở `evidence/summary.md`.
 
 ## §2. Impact & quyết định chọn *(guide 1.3)*
 
 | Hướng | Bao nhiêu người gặp | Lần/tháng | Tốn mỗi lần | Impact/tháng | Làm kịp? | Chọn? |
 |---|---|---|---|---|---|---|
-| Cảnh báo nhóm chi chạm ngưỡng + gợi ý giảm | 1 người/persona *(tự ước tính)* | 4 *(tự ước tính)* | 15 phút *(tự ước tính)* | 60 phút/người/tháng *(tự ước tính)* | Có | **Chọn** |
+| Cảnh báo nhóm chi chạm ngưỡng + gợi ý giảm | 3 người ngoài nhóm, theo bản tóm tắt phỏng vấn P1–P3 được Tuân xác nhận | P1: khoảng 3; P2: khoảng 2; P3: khoảng 4, tự báo | P1: khoảng 15; P2: 20–25; P3: 5–10 phút, tự báo | Chưa đo lợi ích tiết kiệm; tải rà được ước lượng riêng bên dưới | Có | **Chọn** |
 | Giải thích toàn bộ sao kê | 1 người/persona *(tự ước tính)* | 2 *(tự ước tính)* | 30 phút *(tự ước tính)* | 60 phút/người/tháng *(tự ước tính)* | Quá rộng cho CP2 | Không |
 | Tự động chặn giao dịch khi gần hết ngân sách | Chưa có nguồn | Chưa có nguồn | Rủi ro cao | Chưa tính | Không, có tác động tiền thật | Không |
 
-- Impact hướng chọn = 1 người × 4 lần × 15 phút = **60 phút/người/tháng**, toàn bộ là *(tự ước tính)* và phải thay bằng số khảo sát thật khi có.
-- Cập nhật CP3: CSV thực tế không đo số lần rà chi tiêu/tháng hoặc thời gian rà theo phút, nên chưa thể thay các thừa số trên bằng số quan sát. Các số `x/31` toàn mẫu, `x/16` và `x/14` theo hồ sơ mở rộng mô tả các nhóm khác nhau, không suy ra thời gian tiết kiệm hoặc hiệu quả sản phẩm; review R04 tự báo chờ tải lịch sử 5 phút cũng không phải thời gian rà khoản có thể giảm.
+- Tải công việc tham chiếu theo nguồn `evidence/interviews/summary.csv`: P1 khoảng 3 × 15 = **45 phút/tháng**; P2 khoảng 2 × (20–25) = **40–50 phút/tháng**; P3 khoảng 4 × (5–10) = **20–40 phút/tháng**. Đây là **ước lượng từ số tự báo của một lần gần nhất trong bản tóm tắt đã được Tuân xác nhận**, không phải tổng thời gian cả tháng đã đo hay số phút prototype tiết kiệm.
+- **Impact sản phẩm chưa đo:** không tiếp tục trình bày giả định 60 phút/người/tháng cũ như số có nguồn. Chưa có thử nghiệm trước/sau để biết cảnh báo giảm được bao nhiêu thời gian hay chi tiêu. Giữ P3 là trường hợp không gặp pain, không suy rộng 3 ghi chép thành toàn bộ người dùng.
+- CSV khảo sát vẫn không đo số lần/thời gian rà. Các số `x/31`, `x/16` và `x/14` thuộc các nhóm khác nhau; không gộp với P1–P3 khi chưa biết trùng người. Tần suất rà chi tiêu không đồng nghĩa số phiên cảnh báo gọi model; không dùng để sửa kết quả mô phỏng chi phí đã chạy.
 - Giữ lại hai hướng loại để tránh sửa câu chuyện theo kết quả sau này.
 
 ## §3. Giải pháp tương tự *(guide 2.1)*
@@ -106,7 +109,7 @@ flowchart TD
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
 
-- Persona mô phỏng CP4: dùng ít 2, dùng vừa 6, dùng nhiều 15 phiên/tháng *(tự ước tính)*; chưa có dữ liệu tần suất thực để thay thế.
+- Persona mô phỏng CP4: dùng ít 2, dùng vừa 6, dùng nhiều 15 phiên cảnh báo/tháng *(tự ước tính)*; số 2/3/4 lần rà chi tiêu tự báo ở ghi chép phỏng vấn chưa đo cùng loại phiên nên không thay trực tiếp các giả định này.
 - Mô phỏng CP4: Run ID `simulate-1@20261128-104044`, 50 phiên, 0 lỗi. Với kịch bản cơ sở 500 người *(tự ước tính)*, `gpt-5.4-nano` ước tính $2,30/tháng, tương đương $0,0046/người/tháng. Chi tiết và giả định ở `cost/cost-estimate.md`.
 
 ## §9. Rủi ro & an toàn
@@ -129,3 +132,5 @@ flowchart TD
 | 28/11/2026 (sau khi nhận CSV) | Ẩn danh và đếm đủ 24 phản hồi; đối chiếu 22 dòng đầu với plan; cập nhật Canvas, §0–§2 và hồ sơ bằng chứng | Bản xuất mới thêm hai dòng; form thực tế 19 câu khác bản soạn và chỉ ba người khớp hồ sơ, nên chưa thể xác nhận đạt ngưỡng pain. |
 | 28/11/2026 (mở rộng đối tượng, CSV đầy đủ) | Đồng bộ Canvas và §1 sang người từ 18 tuổi dùng ví/app và đặt ngân sách, không giới hạn nghề; cập nhật 31 phản hồi, báo nhóm mở rộng 16/14 và giữ nhóm gốc 3 riêng | Lát cắt có thể phục vụ nhiều nghề; thay đổi sau khi có dữ liệu được khai rõ, không sửa ngưỡng gốc. Hai phản hồi trong nhóm 16 cần xác minh mâu thuẫn sử dụng app; không coi toàn bộ 31 phản hồi là đúng persona. |
 | 28/11/2026 (tích hợp main) | Gộp 18 chỉ số khảo sát và ví dụ lựa chọn trắc nghiệm của nhóm vào hồ sơ bằng chứng; giữ số toàn mẫu và nhóm 16/14 riêng | Đã đối chiếu số liệu với CSV; timestamp khác nhau không chứng minh người trả lời độc lập, ví dụ trắc nghiệm không thay lời kể hành vi theo giả thuyết. |
+| 28/11/2026 (nhận ghi chép bổ sung) | Tạo hồ sơ dự thảo P1–P3 và 6 trích đoạn khớp nguồn; thay giả định impact 60 phút không có nguồn bằng bảng tải rà tự báo 20–50 phút/người/tháng, chưa phải lợi ích sản phẩm | Tuân cung cấp `khaosat.txt`; còn chờ metadata/ngoài nhóm/nguyên văn/đồng thuận. Giữ P3 không gặp pain, không gộp vào khảo sát hoặc sửa chuẩn đạt/mô phỏng đã chạy. |
+| 28/11/2026 (xác nhận nguồn phỏng vấn) | Ghi rõ team phỏng vấn sáng cùng ngày, 3 người ngoài nhóm và đồng ý dùng nội dung ẩn danh; nguồn là bản tóm tắt | Tuân xác nhận trong trao đổi. Không nhận 6 trích đoạn tóm tắt là lời nói nguyên văn, không coi nguồn mới xác nhận toàn bộ giả thuyết khảo sát gốc. |

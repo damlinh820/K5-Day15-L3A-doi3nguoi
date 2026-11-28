@@ -87,6 +87,7 @@ git status
 - Đã có 5 trích đoạn review công khai có nguồn tại `evidence/review-quotes.csv`. Kiểm lại và bổ sung lời kể hành vi thật bằng một trong hai cách:
   - phỏng vấn nhanh ít nhất 3 người; hoặc
   - đào review công khai theo `evidence/data-mining.md`.
+- Cập nhật 28/11/2026: Tuân xác nhận team phỏng vấn 3 người ngoài nhóm sáng cùng ngày, được đồng ý dùng nội dung ẩn danh; `khaosat.txt` là bản tóm tắt. Đã có P1–P3 và 6 trích đoạn từ tóm tắt; 2/3 nêu rà ≥15 phút, giữ P3 không phát hiện muộn và chỉ rà 5–10 phút. Đủ số lượng hướng phỏng vấn ≥3 ngoài nhóm; không nhận 6 đoạn là lời nói nguyên văn, không cộng vào mẫu khảo sát.
 - Không biến lựa chọn trắc nghiệm thành lời trích dẫn do người dùng tự nói.
 - Ẩn tên và thông tin nhận dạng trong mọi trích dẫn.
 - Đối chiếu kết quả với ngưỡng đã đăng ký trong `evidence/hypothesis.md`.
@@ -250,7 +251,7 @@ python run.py simulate --try
 
 - [ ] `TEAMS.md` có đủ 4 thành viên và đúng format.
 - [ ] Đã bổ sung họ tên đầy đủ của Trường, MSSV `2A202603378`.
-- [ ] `evidence/summary.md` có nguồn pain đạt ngưỡng.
+- [x] Có nguồn phỏng vấn 3 người ngoài nhóm được Tuân xác nhận; kết luận giả thuyết khảo sát gốc vẫn báo riêng, không nhận bản tóm tắt là lời nói nguyên văn.
 - [x] Có 5 trích đoạn review công khai nguyên văn đã ẩn danh; việc đạt ngưỡng pain vẫn cần đánh giá riêng.
 - [x] Số liệu khảo sát được báo dạng `x/31`, kèm nhóm hồ sơ mở rộng `x/16` và nhóm không mâu thuẫn Q3 `x/14`.
 - [ ] `eval/benchmark.csv` có 20–30 câu.
@@ -270,7 +271,7 @@ python run.py simulate --try
 
 ## 5. Điểm nghẽn cần ưu tiên
 
-1. Khảo sát đầy đủ có 31 phản hồi nhưng chỉ 16 người khớp các trường hồ sơ mở rộng, hoặc 14 nếu kiểm thêm mâu thuẫn Q3; chưa xác minh ngoài nhóm và chưa đo trường hợp trong 30 ngày/thời gian rà ≥15 phút. Đã có 5 review bổ trợ, nhưng chưa đủ mẫu review 30 theo kế hoạch và Q19 khảo sát không có lời kể có nội dung. Tuân ưu tiên xác minh, bổ sung đúng người và trường hợp thực tế; không đổi ngưỡng để kết luận đạt.
+1. Đã có nguồn phỏng vấn 3 người ngoài nhóm sáng 28/11 theo xác nhận của Tuân và tần suất/thời gian tự báo; 5 review công khai nguyên văn lưu riêng. Khảo sát 31 phản hồi vẫn có giới hạn nhóm 16/14 và điều kiện chưa đo được. Nguồn phỏng vấn là tóm tắt: nếu cần trích lời nói trực tiếp phải bổ sung nguyên văn, không đổi loại nguồn hoặc sửa tiêu chí gốc; không cộng các mẫu chưa kiểm tra trùng. Mẫu review 30 chưa hoàn thành, không ghi đã hoàn thành hướng đào review.
 2. Không chạy lượt đánh giá chính thức trước khi Linh xác nhận model thật và token lớn hơn 0.
 3. Không quay video khi hệ thống vẫn hiển thị model `fake`.
 4. Chưa được thêm Trường vào `TEAMS.md` cho đến khi có họ tên đầy đủ để tránh sai thông tin thành viên.
