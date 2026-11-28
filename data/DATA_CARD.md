@@ -18,6 +18,12 @@
 - Mỗi persona có ngân sách cho `an_uong`, `di_lai`, `mua_sam`, `giai_tri`, `nha_o`, `hoa_don`, `y_te`.
 - Ba edge case cố định ở tháng 11: U001 ăn uống chạm 100%; U002 mua sắm vượt 100%; U003 y tế vượt 100% nhưng không được gợi ý cắt nhóm thiết yếu.
 
+## Cấu hình demo · `demo_finance.json`
+
+- Số tiền và ngày nhận thu nhập hàng tháng cùng số dư đầu kỳ của ba tháng là dữ liệu synthetic tự đặt để trình diễn giao diện.
+- Chỉ dùng để tính số dư và dự báo trong bản demo local; không dùng làm bằng chứng pain hay số liệu người dùng thật.
+- Giao dịch thêm trên giao diện chỉ tồn tại trong phiên trình duyệt và được tính lại ngay, không ghi vào dataset gốc.
+
 ## Tái lập và kiểm
 
 ```powershell

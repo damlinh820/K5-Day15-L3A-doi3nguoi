@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ví chi tiêu · Demo E2</title>
+<style>
+:root{font-family:Inter,system-ui,-apple-system,sans-serif;color:#18342d;background:#e8efeb}*{box-sizing:border-box}body{margin:0;padding:30px 14px}.wrap{max-width:1050px;margin:auto;display:flex;align-items:center;justify-content:center;gap:65px}.intro{max-width:365px}.brand{color:#18705a;font-weight:800;letter-spacing:.15em;font-size:12px}.intro h1{font-size:45px;line-height:1.1;letter-spacing:-.04em;margin:18px 0}.intro p{line-height:1.65;color:#62756f}.phone{position:relative;width:410px;max-width:100%;background:#f7faf8;border:8px solid #1a302b;border-radius:42px;box-shadow:0 24px 65px #1c393326;overflow:hidden}.screen{height:min(820px,88vh);overflow:auto;padding:22px 19px 96px}.top,.row{display:flex;justify-content:space-between;align-items:center;gap:10px}.logo{font-weight:850;color:#17644f}.avatar{background:#d7ece3;padding:9px 11px;border-radius:50%;font-weight:700}.welcome{margin:23px 0 15px}.welcome h2{font-size:23px;margin:4px 0}.muted{color:#71837d;font-size:12px}.card{background:#fff;border:1px solid #e4ece8;border-radius:19px;padding:16px;margin:11px 0;box-shadow:0 5px 16px #19382b08}.card h3{font-size:15px;margin:0 0 12px}.balance{background:#185c4c;color:#fff;border:0}.balance .muted{color:#c3dcd4}.amount{font-size:27px;font-weight:780;margin:7px 0}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:9px}.metric{background:#f2f7f4;border-radius:12px;padding:11px}.metric strong{display:block;font-size:13px;margin-top:5px}select,input,textarea{width:100%;font:inherit;border:1px solid #d9e5df;background:#fff;border-radius:11px;padding:10px;color:#263d35}label{display:block;font-size:11px;color:#6c7d77;margin-bottom:5px}.field{margin-bottom:10px}.bar{height:8px;border-radius:10px;background:#e6eee9;overflow:hidden}.bar span{display:block;height:100%;background:#62b68e;border-radius:10px}.budget-row{padding:11px 0;border-bottom:1px solid #edf2ef}.budget-row:last-child{border:0}.budget-head{display:flex;justify-content:space-between;font-size:12px;margin-bottom:7px}.budget-head strong{text-align:right}.alert{border-color:#f0c478;background:#fff9ed}.alert strong{color:#9a5d00}.btn{width:100%;border:0;border-radius:11px;padding:12px;font:inherit;font-weight:750;cursor:pointer;margin-top:7px}.primary{background:#bfe69f;color:#173f31}.secondary{background:#edf4ef;color:#275a49}.danger{background:#fff0ed;color:#a04136}.btn:disabled{opacity:.55;cursor:wait}.result{white-space:pre-wrap;line-height:1.55;font-size:13px;overflow-wrap:anywhere}.tag{font-size:10px;color:#3c765f;background:#e4f3e9;border-radius:20px;padding:5px 8px;display:inline-block}.hide{display:none}.error{color:#a03e36}.tx{border-bottom:1px solid #edf2ee;padding:9px 0;font-size:11px}.tx div{display:flex;justify-content:space-between;gap:8px}.tx small{color:#788882}.comparison{width:100%;border-collapse:collapse;font-size:11px;margin-top:12px}.comparison th,.comparison td{text-align:right;padding:7px 4px;border-bottom:1px solid #edf2ef}.comparison th:first-child,.comparison td:first-child{text-align:left}.up{color:#b84d42}.down{color:#25805c}.neutral{color:#6e7e78}textarea{resize:vertical;min-height:64px}.foot{text-align:center;color:#788983;font-size:10px;line-height:1.5;margin-top:17px}.page-title{margin:25px 0 5px}.page-title h2{font-size:23px;margin:4px 0}.empty{text-align:center;padding:40px 18px}.empty-icon{font-size:35px;margin-bottom:10px}.toolnav{position:absolute;left:0;right:0;bottom:0;height:76px;background:#fff;border-top:1px solid #dfe9e4;display:grid;grid-template-columns:repeat(3,1fr);padding:7px 12px 10px;z-index:5}.navbtn{position:relative;border:0;background:transparent;color:#788983;border-radius:12px;font:inherit;font-size:10px;font-weight:700;cursor:pointer}.navbtn span:first-child{display:block;font-size:21px;margin-bottom:2px}.navbtn.active{background:#e7f3eb;color:#17644f}.badge{position:absolute;top:2px;left:54%;background:#d95547;color:#fff;border-radius:20px;min-width:17px;height:17px;padding:2px 5px;font-size:9px}.toast{background:#1e4e40;color:#fff;border-radius:12px;padding:11px;font-size:12px;margin:10px 0}@media(max-width:760px){body{padding:0;background:#f7faf8}.intro{display:none}.phone{border:0;border-radius:0;box-shadow:none;width:100%}.screen{height:100vh;max-width:460px;margin:auto}.toolnav{position:fixed;max-width:460px;margin:auto}}
+</style>
+<style>.demo-controls{margin-top:24px;padding:15px;border:1px solid #ccded4;border-radius:16px;background:#f8fbf9}.demo-controls label{font-size:12px;font-weight:700;color:#386453}.demo-controls small{display:block;margin-top:8px;color:#71837d;line-height:1.45}@media(max-width:760px){.wrap{display:block}.intro{display:block;max-width:460px;margin:auto;padding:12px 16px 0}.intro .brand,.intro h1,.intro p,.intro>.tag{display:none}.demo-controls{margin:0 0 8px;padding:10px 12px}.demo-controls small{display:none}.screen{height:calc(100dvh - 92px)}}</style>
+<style>.proposal-row{padding:10px 0;border-bottom:1px solid #edf2ef}.proposal-bars{display:grid;gap:4px;margin:8px 0}.proposal-track{height:8px;border-radius:6px;background:#edf2ef;overflow:hidden}.proposal-track span{height:100%;display:block}.proposal-old{background:#3ca378}.proposal-new{background:#df6f67}.proposal-actions{display:flex;gap:7px}.proposal-actions .btn{font-size:12px}.proposal-note{font-size:11px;color:#72847b;line-height:1.45}.proposal-range{accent-color:#185c4c;padding:0}.proposal-values{font-size:11px;color:#566c62;line-height:1.6}</style>
+<style>.budget-row[role=button]{cursor:pointer;border-radius:10px;padding:11px 6px}.budget-row[role=button]:hover,.budget-row[role=button]:focus-visible{background:#eef7f0;outline:2px solid #8bc8a9}.donut{width:172px;height:172px;margin:18px auto;border-radius:50%;display:grid;place-items:center;background:conic-gradient(#45a77c 0deg,#e7efea 0deg)}.donut-center{width:130px;height:130px;border-radius:50%;background:white;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center}.donut-center strong{font-size:23px}.history-note{font-size:11px;color:#71837d;line-height:1.5}.back-button{border:0;background:#eaf3ed;border-radius:10px;padding:9px 12px;color:#275a49;font-weight:700;cursor:pointer}</style>
+<style>.donut.hide{display:none}.legend-item{display:flex;align-items:center;gap:8px;padding:5px 0;font-size:12px}.legend-dot{width:10px;height:10px;flex:none;border-radius:50%}.legend-item strong{margin-left:auto}.summary-donut{width:190px;height:190px}.summary-donut .donut-center{width:145px;height:145px}.summary-donut .donut-center strong{font-size:15px}</style>
+</head>
+<body><div class="wrap">
+<section class="intro"><div class="brand">EVPROMOAI · DEMO E2</div><h1>Chi tiêu rõ hơn.<br>Quyết định tự tin hơn.</h1><p>Theo dõi số dư, ngân sách theo nhóm và mốc dự báo từ dữ liệu giao dịch tổng hợp.</p><span class="tag">Dữ liệu synthetic · Chạy local</span><div class="demo-controls"><label for="scenario">Công cụ trình diễn · Chọn kịch bản</label><select id="scenario"><option value="salary">Đầu tháng mới nhận lương</option><option value="mid">Giữa tháng chạm ngưỡng 80%</option><option value="end">Cuối tháng vượt ngân sách</option></select><small>Kịch bản dùng dữ liệu tổng hợp để thử các tình huống.</small></div></section>
+<main class="phone"><div class="screen">
+<div class="top"><div class="logo">◒ &nbsp; ví chi tiêu</div><div class="avatar">V</div></div>
+<section id="homePage" class="page">
+<div class="welcome"><div class="muted">TỔNG QUAN TÀI CHÍNH</div><h2>Chào bạn 👋</h2><div class="muted">Các số liệu cập nhật ngay theo giao dịch.</div></div><div id="transactionNotice" class="toast hide" role="status"></div>
+
+<div class="card"><div class="field"><label for="month">Tháng đang xem</label><select id="month"></select></div><select id="category" hidden aria-label="Nhóm được chọn"></select></div>
+
+<section class="card balance"><div class="muted">SỐ DƯ ƯỚC TÍNH ĐẾN NGÀY ĐANG XÉT</div><div class="amount" id="balance">Đang tải…</div><div class="grid2"><div><div class="muted">Tổng tiền vào đến ngày xem</div><strong id="income">—</strong></div><div><div class="muted">Lương định kỳ</div><strong id="incomeDay">—</strong></div></div><div class="muted" id="incomeDetails" style="margin-top:10px"></div></section>
+
+<div class="grid2"><div class="metric"><span class="muted" id="thresholdLabel">Dự báo chạm 80%</span><strong id="thresholdDate">—</strong></div><div class="metric"><span class="muted">Dự báo hết tiền</span><strong id="emptyDate">—</strong></div></div><div class="muted" style="margin:7px 4px 13px">Ước tính theo mức chi trung bình mỗi ngày đến ngày đang xét.</div>
+
+<div class="card"><h3>Phân bổ khoản tiền ra</h3><div class="history-note">Theo nhóm trong tháng đến ngày đang xem; không gồm gửi tiết kiệm. Khoản chưa phân loại được hiển thị riêng.</div><div id="spendDonut" class="donut summary-donut" role="img"><div class="donut-center"><strong id="spendTotal">—</strong><span class="muted">tổng tiền ra</span></div></div><div id="spendLegend"></div><div id="spendEmpty" class="muted hide">Chưa có khoản tiền ra trong thời gian này.</div></div>
+
+<div class="card"><div class="top"><h3>Ngân sách theo nhóm</h3><span class="tag">Chọn nhóm để xem ›</span></div><div id="budgetList"></div></div>
+
+<div class="card hide"><h3>Chi tiết nhóm đang xem</h3><div class="row"><span class="muted" id="groupAmountLabel">Đã chi / Ngân sách</span><strong id="groupAmount">—</strong></div><div class="bar" style="margin:10px 0"><span id="groupBar"></span></div><div class="row"><span class="muted" id="groupRemainingLabel">Còn lại</span><strong id="groupRemaining">—</strong></div><button class="btn secondary" id="toggle">Xem giao dịch liên quan</button><div id="transactions" class="hide"></div></div>
+
+<button class="btn primary" id="analyze">✦ &nbsp; Phân tích chi tiêu</button>
+<div id="resultCard" class="card hide" aria-live="polite"><div class="top"><h3>Gợi ý dành cho bạn</h3><span class="tag" id="model"></span></div><div class="result" id="result"></div><div id="proposalWrap" class="hide"><h3 style="margin-top:16px">Phương án bù ngân sách</h3><p class="proposal-note">Phương án số tiền do ứng dụng tính theo khoản còn lại, có thể khác gợi ý bằng lời của model. Chỉ giảm ngân sách chưa sử dụng ở nhóm không thiết yếu.</p><div id="proposalSummary" class="proposal-note"></div><div id="proposalRows"></div><div class="proposal-actions"><button id="proposalAccept" class="btn primary">Đồng ý</button><button id="proposalReject" class="btn secondary">Không đồng ý</button><button id="proposalCustomize" class="btn secondary">Tùy chỉnh</button></div><div id="proposalCustom" class="hide"><p class="proposal-note">🟢 Ngân sách hiện tại &nbsp; 🔴 Phương án tự động. Kéo thanh để chọn số tiền chuyển từ mỗi nhóm.</p><div id="proposalSliders"></div><div id="proposalCustomSummary" class="proposal-note"></div><button id="proposalApplyCustom" class="btn primary">Xác nhận điều chỉnh</button><div id="proposalError" class="error proposal-note" aria-live="polite"></div></div></div><div id="comparisonWrap" class="hide"><h3 style="margin-top:16px">So sánh chi tiêu với tháng trước</h3><table class="comparison"><thead><tr><th>Khoản</th><th>Tháng trước</th><th>Tháng này</th><th>Biến động</th></tr></thead><tbody id="comparison"></tbody></table></div><button class="btn secondary" id="dismiss">Đóng</button></div>
+
+<div class="card"><h3>Hỏi thêm</h3><textarea id="question" placeholder="Ví dụ: Vì sao dự báo tôi sắp hết tiền?"></textarea><button class="btn secondary" id="ask">Gửi câu hỏi</button></div>
+<div class="foot">Dữ liệu và dự báo dùng cho demo, không phải tư vấn tài chính.<br>Giao dịch thêm chỉ tồn tại trong phiên trình duyệt.</div>
+</section>
+
+<section id="groupPage" class="page hide"><div class="page-title"><button class="back-button" id="groupBack">‹ Trang chủ</button><div class="muted" style="margin-top:20px">CHI TIẾT NHÓM · <span id="detailPeriod"></span></div><h2 id="detailTitle">—</h2></div><div class="card"><div class="donut" id="detailDonut"><div class="donut-center"><strong id="detailPercent">—</strong><span class="muted" id="detailCenter">mức đã dùng</span></div></div><div class="row"><span class="muted" id="detailUsedLabel">Đã chi</span><strong id="detailUsed">—</strong></div><div class="row" style="margin-top:10px"><span class="muted" id="detailLimitLabel">Mức trần</span><strong id="detailLimit">—</strong></div><div class="row" style="margin-top:10px"><span class="muted" id="detailLeftLabel">Còn lại</span><strong id="detailLeft">—</strong></div><button id="detailEdit" class="btn secondary">Chỉnh sửa mức trần</button><div id="detailEditor" class="hide" style="margin-top:12px"><label for="detailInput" id="detailInputLabel">Mức trần mới (đ)</label><input id="detailInput" type="number" min="0" step="1"><button class="btn primary" id="detailSave">Lưu thay đổi</button><button class="btn secondary" id="detailCancel">Hủy</button></div><p class="history-note" id="detailNote">Biểu đồ tối đa 100%; phần vượt trần được ghi bằng số.</p></div><div class="card"><h3>Hỏi về nhóm này</h3><textarea id="detailQuestion" placeholder="Ví dụ: Tôi đã chi bao nhiêu trong nhóm này?"></textarea><button id="detailAsk" class="btn primary">Gửi câu hỏi</button><div id="detailReply" class="result" aria-live="polite" style="margin-top:10px"></div></div><div class="card"><h3>Lịch sử giao dịch</h3><div class="history-note">Trong tháng, đến ngày đang xem.</div><div id="detailHistory"></div></div></section>
+
+<section id="entryPage" class="page hide"><div class="page-title"><div class="muted">CẬP NHẬT SỐ DƯ</div><h2>Nhập khoản thu chi</h2><div class="muted">Số dư và dự báo sẽ được tính lại ngay.</div></div><div id="entryBalance" class="toast">Số dư hiện tại: —</div><div class="card"><h3>Giao dịch mới</h3><div class="grid2"><div class="field"><label>Loại</label><select id="newType"><option value="out">Tiền ra</option><option value="in">Tiền vào</option></select></div><div class="field"><label>Số tiền</label><input id="newAmount" type="number" min="1" placeholder="150000"></div></div><div class="field"><label>Nội dung giao dịch</label><input id="newDescription" placeholder="Ví dụ: Cửa hàng ABC"></div><div class="grid2"><div class="field"><label>Ngày</label><input id="newDate" type="date"></div><div class="field"><label>Nhóm</label><select id="newCategory"><option value="">Tự nhận diện</option></select></div></div><button id="addTransaction" class="btn primary">+ Thêm và cập nhật số dư</button><div class="muted" style="margin-top:10px">Chọn nhóm thủ công hoặc để hệ thống nhận diện nội dung. Nếu chưa rõ nhóm, chuông sẽ nhắc bạn xác nhận.</div></div></section>
+
+<section id="notifyPage" class="page hide"><div class="page-title"><div class="muted">TRUNG TÂM THÔNG BÁO</div><h2>Khoản chưa có nhãn</h2><div class="muted">Xác nhận nhóm để ngân sách được tính chính xác.</div></div><div id="notificationEmpty" class="card empty"><div class="empty-icon">🔔</div><h3>Không có thông báo mới</h3><div class="muted">Tất cả giao dịch đã được phân loại.</div></div><div id="unclassifiedCard" class="card alert hide"><h3>⚠ Cần phân loại giao dịch</h3><div id="unclassifiedText" class="muted"></div><div class="field" style="margin-top:10px"><label>Giao dịch này thuộc nhóm nào?</label><select id="classifyCategory"></select></div><button id="classify" class="btn primary">Xác nhận nhóm</button><div id="remainingNotice" class="muted" style="margin-top:9px"></div></div></section>
+</div><nav class="toolnav" aria-label="Công cụ"><button class="navbtn active" data-page="homePage"><span>⌂</span>Trang chủ</button><button class="navbtn" data-page="entryPage"><span>＋</span>Thu chi</button><button class="navbtn" data-page="notifyPage"><span>🔔</span>Thông báo<i id="notifyBadge" class="badge hide">0</i></button></nav></main></div>
+<script>
+const $=id=>document.getElementById(id);
+const money=n=>new Intl.NumberFormat('vi-VN').format(Math.round(n))+' đ';
+const names={an_uong:'Ăn uống',di_lai:'Đi lại',mua_sam:'Mua sắm',giai_tri:'Giải trí',nha_o:'Nhà ở',hoa_don:'Hóa đơn',y_te:'Y tế',tra_no:'Trả nợ',cho_vay:'Cho vay',tiet_kiem:'Tiết kiệm',khac:'Khác'};
+const categoryColors={an_uong:'#30a783',di_lai:'#5b8ce0',mua_sam:'#ef9a60',giai_tri:'#ab77ce',nha_o:'#eb7486',hoa_don:'#d3ac43',y_te:'#47aebb',tra_no:'#7f8cc4',cho_vay:'#b3806d',khac:'#77918b',chua_phan_loai:'#aab5b0'};
+let scenarios={},transactions=[],budgets={},finance={},current=null,analysisTx=null,unclassified=[],asOf='',viewingThrough='',proposal=null;
+
+function isoDate(year,month,day){const last=new Date(year,month,0).getDate();return year+'-'+String(month).padStart(2,'0')+'-'+String(Math.min(Math.max(1,day),last)).padStart(2,'0')}
+function addDays(date,n){const d=new Date(date+'T12:00:00');d.setDate(d.getDate()+Math.ceil(n));return d.toISOString().slice(0,10)}
+function previousMonth(month){const [y,m]=month.split('-').map(Number);return m===1?(y-1)+'-12':y+'-'+String(m-1).padStart(2,'0')}
+function rowsFor(month,category,through){return transactions.filter(x=>x.user_id===current.transaction.user_id&&x.date.startsWith(month)&&(!category||x.category===category)&&(!through||x.date<=through)&&x.amount>0)}
+function spent(month,category,through){return rowsFor(month,category,through).reduce((sum,x)=>sum+x.amount,0)}
+function savingsRows(month,through){return transactions.filter(x=>x.user_id===current.transaction.user_id&&x.date.startsWith(month)&&x.category==='tiet_kiem'&&(!through||x.date<=through))}
+function saved(month,through){return savingsRows(month,through).reduce((sum,x)=>sum+x.amount,0)}
+
+function selectOptions(){
+  const cats=Object.keys(names);
+  for(const id of ['category','classifyCategory'])$(id).replaceChildren(...cats.map(c=>new Option(names[c],c)));
+  $('newCategory').append(...cats.map(c=>new Option(names[c],c)));
+  const months=[...new Set(transactions.map(x=>x.date.slice(0,7)))].sort();
+  $('month').replaceChildren(...months.map(m=>new Option(m,m)));
+}
+
+function render(){
+  if(!current)return;
+  const user=current.transaction.user_id,month=$('month').value,category=$('category').value;
+  const monthRows=transactions.filter(x=>x.user_id===user&&x.date.startsWith(month));
+  const lastDate=asOf.startsWith(month)?asOf:(monthRows.map(x=>x.date).sort().at(-1)||month+'-01');
+  viewingThrough=lastDate;
+  const cfg=finance[user], [year,mon]=month.split('-').map(Number);
+  const incomeDate=isoDate(year,mon,cfg.income_day);
+  const expense=monthRows.filter(x=>x.amount>0&&x.date<=lastDate).reduce((s,x)=>s+x.amount,0);
+  const extraIncome=monthRows.filter(x=>x.amount<0&&x.date<=lastDate).reduce((s,x)=>s+Math.abs(x.amount),0);
+  const salary=lastDate>=incomeDate?cfg.monthly_income:0;
+  const balance=(cfg.opening_balance[month]||0)+salary+extraIncome-expense;
+  const matching=monthRows.filter(x=>x.amount>0&&x.category===category&&x.date<=lastDate).sort((a,b)=>a.date.localeCompare(b.date));
+  analysisTx=matching.at(-1)||null;
+  $('analyze').disabled=$('ask').disabled=['tiet_kiem','nha_o'].includes(category)||!analysisTx||!budgets[user][category];
+  $('analyze').textContent='✦   Phân tích · '+names[category];$('analyze').title=category==='nha_o'?'Nhà ở là khoản phân bổ cố định.':category==='tiet_kiem'?'Tiết kiệm là mục tiêu, không phân tích như chi tiêu.':category==='khac'?'Nhóm Khác không có mức trần.':analysisTx&&budgets[user][category]?'':'Cần có giao dịch chi và ngân sách lớn hơn 0 cho nhóm này.';
+  $('balance').textContent=money(balance);$('entryBalance').textContent='Số dư hiện tại: '+money(balance);$('income').textContent=money(salary+extraIncome);$('incomeDay').textContent='Ngày '+cfg.income_day;$('incomeDetails').textContent='Lương đã nhận: '+money(salary)+' · Tiền vào khác: '+money(extraIncome);document.querySelector('.balance .muted').textContent='SỐ DƯ ĐẾN NGÀY '+lastDate;
+  $('newDate').value=lastDate;
+  renderSpendChart(month,lastDate);renderBudgets(month,lastDate);renderGroup(month,category,lastDate);renderDetail(month,category,lastDate);renderForecast(month,category,lastDate,balance);
+  renderUnclassified();
+}
+
+function renderSpendChart(month,through){
+  const totals={};for(const tx of rowsFor(month,null,through)){const group=tx.category==='thu_nhap_khac'?'khac':tx.category;if(group==='tiet_kiem')continue;const key=categoryColors[group]?group:'chua_phan_loai';totals[key]=(totals[key]||0)+tx.amount}
+  const entries=Object.entries(totals).sort((a,b)=>b[1]-a[1]),total=entries.reduce((sum,x)=>sum+x[1],0);let offset=0;const sections=entries.map(([category,amount])=>{const start=offset;offset+=amount/total*100;return categoryColors[category]+' '+start+'% '+offset+'%'});$('spendDonut').style.background=total?'conic-gradient('+sections.join(',')+')':'#e7efea';$('spendDonut').setAttribute('aria-label','Tổng tiền ra '+money(total));$('spendTotal').textContent=money(total);$('spendEmpty').classList.toggle('hide',total>0);
+  $('spendLegend').replaceChildren(...entries.map(([category,amount])=>{const row=document.createElement('div');row.className='legend-item';const dot=document.createElement('span');dot.className='legend-dot';dot.style.background=categoryColors[category];const label=document.createElement('span');label.textContent=names[category]||'Chưa phân loại';const value=document.createElement('strong');value.textContent=money(amount)+' · '+(amount/total*100).toFixed(1)+'%';row.append(dot,label,value);return row}));
+}
+
+function renderBudgets(month,through){
+  const user=current.transaction.user_id;
+  $('budgetList').replaceChildren(...Object.keys(names).map(c=>{
+    const limit=budgets[user][c],used=c==='nha_o'?limit:c==='tiet_kiem'?saved(month,through):spent(month,c,through),remaining=limit-used,p=limit?Math.round(used/limit*100):0;
+    const d=document.createElement('div');d.className='budget-row';
+    const remainingText=c==='tiet_kiem'?'còn thiếu mục tiêu':'còn lại';d.innerHTML=c==='khac'?'<div class="budget-head"><span>Khác</span><strong>Không có mức trần</strong></div><div class="muted">Tiền ra: '+money(used)+' · Tiền vào: '+money(transactions.filter(x=>x.user_id===user&&x.date.startsWith(month)&&x.date<=through&&(x.category==='khac'||x.category==='thu_nhap_khac')&&x.amount<0).reduce((s,x)=>s-x.amount,0))+'</div>':'<div class="budget-head"><span>'+names[c]+'</span><strong>'+(c==='nha_o'?(limit?'Khoản cố định · 100%':'Chưa đặt mức cố định'):limit?money(Math.max(0,remaining))+' '+remainingText:(c==='tiet_kiem'?'Chưa đặt mục tiêu':'Chưa đặt ngân sách'))+'</strong></div><div class="bar"><span style="width:'+Math.max(0,Math.min(p,100))+'%"></span></div><div class="muted" style="margin-top:5px">'+(c==='nha_o'?'Đã dành cố định: ':c==='tiet_kiem'?'Đã tiết kiệm ròng: ':'Đã chi: ')+money(used)+' / '+money(limit)+(limit?' · '+p+'%':'')+'</div>';
+    d.setAttribute('role','button');d.tabIndex=0;d.setAttribute('aria-label','Xem chi tiết '+names[c]);d.onclick=()=>openGroup(c);d.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openGroup(c)}};return d;
+  }));
+}
+
+function openGroup(category){$('category').value=category;$('detailEditor').classList.add('hide');$('detailQuestion').value='';$('detailReply').textContent='';$('resultCard').classList.add('hide');render();showPage('groupPage')}
+
+function renderDetail(month,category,through){
+  const user=current.transaction.user_id,isSavings=category==='tiet_kiem',isHousing=category==='nha_o',limit=budgets[user][category],used=isHousing?limit:isSavings?saved(month,through):spent(month,category,through),percent=limit?Math.round(used/limit*100):0,angle=Math.max(0,Math.min(100,percent))*3.6;
+  const isOther=category==='khac';$('detailDonut').classList.toggle('hide',isOther);$('detailEdit').classList.toggle('hide',isOther);$('detailEditor').classList.add('hide');$('detailTitle').textContent=names[category];$('detailPeriod').textContent=month+' · đến '+through;$('detailPercent').textContent=limit?percent+'%':'—';$('detailCenter').textContent=isHousing?'đã phân bổ':isSavings?'mục tiêu':'mức đã dùng';$('detailDonut').style.background='conic-gradient(#45a77c '+angle+'deg, #e7efea '+angle+'deg)';
+  $('detailUsedLabel').textContent=isSavings?'Đã tiết kiệm ròng':'Đã chi';$('detailLimitLabel').textContent=isSavings?'Mục tiêu':'Mức trần';$('detailLeftLabel').textContent=isSavings?'Còn thiếu mục tiêu':used>limit&&limit?'Vượt trần':'Còn lại';
+  $('detailUsed').textContent=money(used);$('detailLimit').textContent=limit?money(limit):'Chưa đặt';$('detailLeft').textContent=limit?money(isSavings?Math.max(0,limit-used):Math.abs(limit-used)):'Chưa đặt';$('detailEdit').textContent=isSavings?'Chỉnh sửa mục tiêu':'Chỉnh sửa mức trần';$('detailInputLabel').textContent=isSavings?'Mục tiêu mới (đ)':'Mức trần mới (đ)';
+  const list=transactions.filter(x=>x.user_id===user&&x.date.startsWith(month)&&(x.category===category||(isOther&&x.category==='thu_nhap_khac'))&&x.date<=through).sort((a,b)=>b.date.localeCompare(a.date));
+  if(isOther){$('detailUsedLabel').textContent='Tổng tiền ra';$('detailLimitLabel').textContent='Tổng tiền vào';$('detailLeftLabel').textContent='Mức trần';$('detailUsed').textContent=money(list.filter(x=>x.amount>0).reduce((s,x)=>s+x.amount,0));$('detailLimit').textContent=money(list.filter(x=>x.amount<0).reduce((s,x)=>s-x.amount,0));$('detailLeft').textContent='Không áp dụng'}
+  $('detailNote').textContent=isHousing?'Khoản cố định được phân bổ đủ 100% ngay đầu tháng. Tiền đã trả theo giao dịch: '+money(spent(month,category,through))+'. Số dư và biểu đồ tổng chỉ tính giao dịch thực tế.':isOther?'Nhóm này không có mức trần.':'Biểu đồ tối đa 100%; phần vượt trần được ghi bằng số.';
+  if(isHousing){$('detailUsedLabel').textContent='Đã dành cố định';$('detailLimitLabel').textContent='Mức cố định / tháng';$('detailLeftLabel').textContent='Chưa phân bổ';$('detailEdit').textContent='Chỉnh sửa mức cố định';$('detailInputLabel').textContent='Mức cố định mỗi tháng (đ)'}
+  $('detailHistory').replaceChildren(...list.map(x=>{const d=document.createElement('div');d.className='tx';const row=document.createElement('div'),description=document.createElement('span'),amount=document.createElement('strong'),meta=document.createElement('small');description.textContent=x.description;amount.textContent=(isSavings?(x.amount>0?'Gửi · ':'Rút · '):(x.amount>0?'Chi · ':'Thu · '))+money(Math.abs(x.amount));meta.textContent=x.date+' · '+x.tx_id;row.append(description,amount);d.append(row,meta);return d}));if(!list.length)$('detailHistory').textContent='Chưa có giao dịch trong thời gian đang xem.';
+}
+
+function renderGroup(month,category,through){
+  const user=current.transaction.user_id,isSavings=category==='tiet_kiem',used=isSavings?saved(month,through):spent(month,category,through),limit=budgets[user][category],p=limit?Math.round(used/limit*100):0;
+  $('groupAmountLabel').textContent=isSavings?'Đã tiết kiệm ròng / Mục tiêu':'Đã chi / Ngân sách';$('groupRemainingLabel').textContent=isSavings?'Còn thiếu mục tiêu':'Còn lại';
+  $('groupAmount').textContent=money(used)+' / '+money(limit);$('groupRemaining').textContent=limit?money(Math.max(0,limit-used)):'Chưa đặt';$('groupBar').style.width=Math.max(0,Math.min(p,100))+'%';
+  const list=transactions.filter(x=>x.user_id===user&&x.date.startsWith(month)&&x.category===category&&x.date<=through);
+  $('transactions').replaceChildren(...list.map(x=>{const d=document.createElement('div');d.className='tx';d.innerHTML='<div><span></span><strong></strong></div><small></small>';d.querySelector('span').textContent=x.description;d.querySelector('strong').textContent=(isSavings?(x.amount>0?'Gửi tiết kiệm · ':'Rút tiết kiệm · '):(x.amount>0?'Tiền ra · ':'Tiền vào · '))+money(Math.abs(x.amount));d.querySelector('small').textContent=x.date+' · '+x.tx_id;return d}));if(!list.length)$('transactions').textContent='Chưa có giao dịch trong thời gian đang xem.';
+}
+
+function renderForecast(month,category,through,balance){
+  $('thresholdLabel').textContent=category==='nha_o'?'Phân bổ cố định · Nhà ở':category==='tiet_kiem'?'Tiến độ mục tiêu tiết kiệm':'Dự báo chạm 80% · '+names[category];
+  const [year,mon]=month.split('-').map(Number),day=Number(through.slice(8,10)),used=spent(month,category,through),limit=budgets[current.transaction.user_id][category];
+  const groupDaily=used/Math.max(day,1),target=.8*limit;
+  let running=0,crossed='';for(const tx of rowsFor(month,category,through).sort((a,b)=>a.date.localeCompare(b.date))){running+=tx.amount;if(running>=target){crossed=tx.date;break}}
+  $('thresholdDate').textContent=category==='nha_o'?(limit?'Đã phân bổ 100%':'Chưa đặt mức cố định'):category==='khac'?'Không có mức trần':category==='tiet_kiem'?(limit?Math.round(saved(month,through)/limit*100)+'% mục tiêu':'Chưa đặt mục tiêu'):!limit?'Chưa đặt ngân sách':crossed?'Đã chạm '+crossed:groupDaily>0?addDays(through,(target-used)/groupDaily):'Chưa đủ dữ liệu';
+  const allSpent=rowsFor(month,null,through).filter(x=>x.category!=='tiet_kiem').reduce((s,x)=>s+x.amount,0),daily=allSpent/Math.max(day,1);
+  $('emptyDate').textContent=balance<=0?'Đã hết '+through:daily>0?addDays(through,balance/daily):'Chưa đủ dữ liệu';
+}
+
+function renderUnclassified(){
+  const pending=unclassified[0];$('unclassifiedCard').classList.toggle('hide',!pending);
+  $('notificationEmpty').classList.toggle('hide',Boolean(pending));$('notifyBadge').classList.toggle('hide',!pending);$('notifyBadge').textContent=unclassified.length;
+  if(pending){$('unclassifiedText').textContent=(pending.amount<0?'Tiền vào ':'Tiền ra ')+money(Math.abs(pending.amount))+' · '+pending.description+' · '+pending.date;$('remainingNotice').textContent=unclassified.length>1?'Còn '+(unclassified.length-1)+' giao dịch khác đang chờ.':'Đây là giao dịch cuối cùng cần phân loại.'}
+}
+
+function showPage(id){
+  document.querySelectorAll('.page').forEach(page=>page.classList.toggle('hide',page.id!==id));
+  document.querySelectorAll('.navbtn').forEach(button=>button.classList.toggle('active',button.dataset.page===id));
+  document.querySelector('.screen').scrollTo({top:0,behavior:'smooth'});
+}
+
+function buildComparison(){
+  const month=$('month').value,prev=previousMonth(month),user=current.transaction.user_id,through=asOf.startsWith(month)?asOf:(transactions.filter(x=>x.user_id===user&&x.date.startsWith(month)).map(x=>x.date).sort().at(-1)||month+'-01');
+  $('comparison').replaceChildren(...Object.keys(names).map(c=>{const before=c==='tiet_kiem'?saved(prev):spent(prev,c),now=c==='tiet_kiem'?saved(month,through):spent(month,c,through),delta=now-before,cls=delta>0?'up':delta<0?'down':'neutral',arrow=delta>0?'↑':delta<0?'↓':'—';const tr=document.createElement('tr');tr.innerHTML='<td>'+names[c]+'</td><td>'+money(before)+'</td><td>'+money(now)+'</td><td class="'+cls+'">'+arrow+' '+money(Math.abs(delta))+'</td>';return tr}));
+  $('comparisonWrap').classList.remove('hide');
+}
+
+function buildProposal(){
+  proposal=null;$('proposalWrap').classList.add('hide');$('proposalCustom').classList.add('hide');
+  const user=current.transaction.user_id,month=$('month').value,target=$('category').value,limits=budgets[user];
+  const through=asOf.startsWith(month)?asOf:(month+'-31');
+  const shortfall=Math.max(0,spent(month,target,through)-limits[target]);
+  if(!shortfall)return;
+  const donors=['an_uong','di_lai','mua_sam','giai_tri'].filter(c=>c!==target).map(c=>({category:c,available:Math.max(0,limits[c]-spent(month,c,through)),amount:0})).filter(d=>d.available>0).sort((a,b)=>b.available-a.available);
+  let remaining=shortfall;for(const donor of donors){donor.amount=Math.min(donor.available,remaining);remaining-=donor.amount}
+  if(!donors.length){$('proposalSummary').textContent='Không có ngân sách chưa sử dụng ở nhóm phù hợp để bù. Hãy tự chỉnh ngân sách nếu cần.';$('proposalRows').replaceChildren();$('proposalWrap').classList.remove('hide');document.querySelector('.proposal-actions').classList.add('hide');return}
+  document.querySelector('.proposal-actions').classList.remove('hide');
+  proposal={user,month,target,through,shortfall,donors,original:{...limits},transactionState:JSON.stringify(transactions)};
+  $('proposalSummary').textContent='Khoản vượt: '+money(shortfall)+' · Có thể bù: '+money(shortfall-remaining)+(remaining?' · Chưa bù đủ: '+money(remaining):'');
+  const changes=donors.filter(d=>d.amount).map(d=>({category:d.category,after:limits[d.category]-d.amount}));changes.push({category:target,after:limits[target]+shortfall-remaining});
+  $('proposalRows').replaceChildren(...changes.map(item=>{const before=limits[item.category],scale=Math.max(before,item.after,1),row=document.createElement('div');row.className='proposal-row';row.innerHTML='<div class="row"><strong></strong><span></span></div><div class="proposal-bars"><div class="proposal-track"><span class="proposal-old"></span></div><div class="proposal-track"><span class="proposal-new"></span></div></div>';row.querySelector('strong').textContent=names[item.category];row.querySelector('.row span').textContent=money(before)+' → '+money(item.after);row.querySelector('.proposal-old').style.width=(before/scale*100)+'%';row.querySelector('.proposal-new').style.width=(item.after/scale*100)+'%';return row}));
+  $('proposalWrap').classList.remove('hide');
+}
+
+function applyProposal(amounts){
+  if(!proposal)return;const limits=budgets[proposal.user];
+  if(current.transaction.user_id!==proposal.user||$('month').value!==proposal.month||$('category').value!==proposal.target||JSON.stringify(transactions)!==proposal.transactionState||Object.keys(proposal.original).some(c=>limits[c]!==proposal.original[c])){alert('Dữ liệu đã thay đổi. Vui lòng phân tích lại.');proposal=null;$('proposalWrap').classList.add('hide');return}
+  const total=amounts.reduce((s,n)=>s+n,0);
+  if(!total||total>proposal.shortfall||amounts.some((n,i)=>!Number.isSafeInteger(n)||n<0||n>proposal.donors[i].available)){$('proposalError').textContent='Chọn số tiền lớn hơn 0, không vượt khoản hụt hoặc ngân sách còn lại.';return}
+  proposal.donors.forEach((d,i)=>{limits[d.category]-=amounts[i]});limits[proposal.target]+=total;
+  proposal=null;$('resultCard').classList.add('hide');render();alert('Đã cập nhật ngân sách theo phương án được xác nhận.');
+}
+
+function customizeProposal(){
+  if(!proposal)return;$('proposalError').textContent='';$('proposalCustom').classList.remove('hide');
+  $('proposalSliders').replaceChildren(...proposal.donors.map(d=>{const row=document.createElement('div');row.className='proposal-row';const label=document.createElement('label');label.textContent=names[d.category]+' · còn có thể chuyển '+money(d.available);const input=document.createElement('input');input.type='range';input.className='proposal-range';input.min='0';input.max=String(d.available);input.step='1';input.value=String(d.amount);const value=document.createElement('div');value.className='proposal-values';input.oninput=()=>{value.textContent='Chuyển: '+money(Number(input.value));updateCustomSummary()};row.append(label,input,value);value.textContent='Chuyển: '+money(d.amount);return row}));updateCustomSummary();
+}
+function updateCustomSummary(){if(!proposal)return;const total=[...document.querySelectorAll('#proposalSliders input')].reduce((s,i)=>s+Number(i.value),0);$('proposalCustomSummary').textContent='Dự kiến chuyển: '+money(total)+' / khoản hụt '+money(proposal.shortfall);$('proposalError').textContent=total>proposal.shortfall?'Tổng tiền chuyển vượt khoản hụt.':''}
+
+function chooseScenario(){
+  current=scenarios[$('scenario').value];if(!current)return;asOf=current.as_of;
+  $('month').value=current.status.month;$('category').value=current.transaction.category;$('resultCard').classList.add('hide');$('detailReply').textContent='';$('detailEditor').classList.add('hide');render();showPage('homePage');
+}
+
+async function send(text,mode='analyze'){
+  $('resultCard').classList.remove('hide');$('comparisonWrap').classList.add('hide');$('proposalWrap').classList.add('hide');proposal=null;$('result').classList.remove('error');$('result').textContent=mode==='question'?'Đang trả lời…':'Đang phân tích…';$('model').textContent='';$('analyze').disabled=$('ask').disabled=true;
+  try{const category=$('category').value,budget=budgets[current.transaction.user_id][category];const r=await fetch('/api/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text,mode,tx_id:analysisTx.tx_id,budget})});const data=await r.json();if(!r.ok)throw Error(data.error);$('result').textContent=data.output;$('model').textContent=data.model_calls?'Model: '+data.models.join(', '):'Không cần gọi model';if(mode==='analyze'){buildComparison();buildProposal()}}
+  catch(e){$('result').textContent=e.message||'Không kết nối được.';$('result').classList.add('error')}
+  finally{$('analyze').disabled=$('ask').disabled=['tiet_kiem','nha_o'].includes($('category').value)||!analysisTx||!budgets[current.transaction.user_id][$('category').value]}
+}
+
+$('scenario').onchange=chooseScenario;$('month').onchange=render;$('category').onchange=render;
+document.querySelectorAll('.navbtn').forEach(button=>button.onclick=()=>showPage(button.dataset.page));
+$('toggle').onclick=()=>{$('transactions').classList.toggle('hide');$('toggle').textContent=$('transactions').classList.contains('hide')?'Xem giao dịch liên quan':'Ẩn giao dịch'};
+$('dismiss').onclick=()=>$('resultCard').classList.add('hide');
+$('proposalAccept').onclick=()=>{if(proposal)applyProposal(proposal.donors.map(d=>d.amount))};
+$('proposalReject').onclick=()=>{proposal=null;$('proposalWrap').classList.add('hide');$('result').textContent+='\n\nĐã giữ nguyên ngân sách.'};
+$('proposalCustomize').onclick=customizeProposal;
+$('proposalApplyCustom').onclick=()=>applyProposal([...document.querySelectorAll('#proposalSliders input')].map(i=>Number(i.value)));
+$('analyze').onclick=()=>send(analysisTx.tx_id);
+$('ask').onclick=()=>{const q=$('question').value.trim();q?send(q,'question'):$('question').focus()};
+$('groupBack').onclick=()=>showPage('homePage');
+$('detailEdit').onclick=()=>{$('detailInput').value=budgets[current.transaction.user_id][$('category').value];$('detailEditor').classList.remove('hide');$('detailInput').focus()};
+$('detailCancel').onclick=()=>$('detailEditor').classList.add('hide');
+$('detailSave').onclick=()=>{const value=Number($('detailInput').value);if($('detailInput').value===''||!Number.isSafeInteger(value)||value<0){alert('Vui lòng nhập số nguyên từ 0 trở lên.');return}budgets[current.transaction.user_id][$('category').value]=value;$('detailEditor').classList.add('hide');$('detailReply').textContent='';$('resultCard').classList.add('hide');render()};
+$('detailAsk').onclick=async()=>{const question=$('detailQuestion').value.trim();if(!question){$('detailQuestion').focus();return}const user=current.transaction.user_id,category=$('category').value,through=viewingThrough,budget=budgets[user][category];$('detailAsk').disabled=true;$('detailReply').textContent='Đang trả lời…';try{const response=await fetch('/api/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text:question,mode:'group_question',tx_id:'',user_id:user,category,through,budget})});const result=await response.json();if(!response.ok)throw Error(result.error);if(current.transaction.user_id===user&&$('category').value===category&&viewingThrough===through)$('detailReply').textContent=result.output}catch(error){$('detailReply').textContent=error.message||'Không thể kết nối, vui lòng thử lại.'}finally{$('detailAsk').disabled=false}};
+$('addTransaction').onclick=async()=>{const amount=Number($('newAmount').value),description=$('newDescription').value.trim(),date=$('newDate').value,category=$('newCategory').value,type=$('newType').value;if(!Number.isSafeInteger(amount)||amount<=0||!description||!date){alert('Vui lòng nhập nội dung, ngày và số tiền nguyên lớn hơn 0.');return}if(!finance[current.transaction.user_id].opening_balance.hasOwnProperty(date.slice(0,7))){alert('Hãy chọn một tháng có dữ liệu số dư đầu kỳ trong bản demo.');return}$('addTransaction').disabled=true;try{const r=await fetch('/api/transaction',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({user_id:current.transaction.user_id,date,description,amount,type,category})});const tx=await r.json();if(!r.ok)throw Error(tx.error);transactions.push(tx);const pending=tx.category==='chua_phan_loai';if(pending)unclassified.push(tx);$('month').value=date.slice(0,7);asOf=asOf.slice(0,7)===date.slice(0,7)&&asOf>date?asOf:date;if(names[tx.category])$('category').value=tx.category;$('resultCard').classList.add('hide');$('newAmount').value='';$('newDescription').value='';$('newCategory').value='';render();$('transactionNotice').classList.toggle('hide',pending);if(!pending)$('transactionNotice').textContent=(tx.classification==='auto'?'Đã tự nhận diện: ':'Đã thêm vào nhóm: ')+(names[tx.category]||'Thu nhập khác');showPage(pending?'notifyPage':'homePage')}catch(e){alert(e.message)}finally{$('addTransaction').disabled=false}};
+$('classify').onclick=async()=>{const tx=unclassified[0],category=$('classifyCategory').value;if(!tx)return;try{const r=await fetch('/api/classify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tx_id:tx.tx_id,category})});const updated=await r.json();if(!r.ok)throw Error(updated.error);const index=transactions.findIndex(x=>x.tx_id===updated.tx_id);if(index>=0)transactions[index]=updated;else transactions.push(updated);unclassified=transactions.filter(x=>x.category==='chua_phan_loai');if(updated.user_id===current.transaction.user_id){$('month').value=updated.date.slice(0,7);asOf=asOf.slice(0,7)===updated.date.slice(0,7)&&asOf>updated.date?asOf:updated.date;if(names[category]){$('category').value=category;$('transactions').classList.remove('hide');$('toggle').textContent='Ẩn giao dịch'}}$('resultCard').classList.add('hide');render();if(!unclassified.length)showPage('homePage')}catch(e){alert(e.message)}};
+
+Promise.all(['/api/scenarios','/api/transactions','/api/budgets','/api/finance'].map(u=>fetch(u).then(r=>r.json()))).then(([s,t,b,f])=>{scenarios=s;transactions=t;unclassified=t.filter(x=>x.category==='chua_phan_loai');budgets=b;finance=f;selectOptions();chooseScenario()}).catch(()=>{$('balance').textContent='Không tải được dữ liệu';$('analyze').disabled=true});
+</script>
+</body></html>

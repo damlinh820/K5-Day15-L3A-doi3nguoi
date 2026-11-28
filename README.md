@@ -32,6 +32,28 @@ Chi tiết Canvas CP1: [canvas.md](canvas.md). Giả thuyết bằng chứng: [e
 
 ## Chạy trong 3 phút
 
+### Giao diện demo dạng điện thoại
+
+Chạy `python codebase/demo_server.py` (Windows có thể dùng `py codebase/demo_server.py`), rồi mở **http://127.0.0.1:8765** trên máy đó. Dừng server bằng `Ctrl+C`. Giao diện chỉ lắng nghe trên máy local; không đưa API key ra trình duyệt. Cấu hình model trong `.env` theo [hướng dẫn kết nối](docs/connect-model.md).
+
+Chọn một trong ba tình huống từ dữ liệu tổng hợp, xem các giao dịch liên quan và nhấn **Phân tích chi tiêu**. Cảnh báo được tính theo ngân sách của nhóm chi đến ngày giao dịch đang xét; chỉ tình huống đạt ngưỡng mới gọi model để gợi ý. Mục **Hỏi thêm** dùng model để trả lời theo đúng giao dịch và trạng thái ngân sách đang chọn. Nhãn kết quả cho biết model được gọi hay không; nếu cấu hình `fake`, mục hỏi đáp sẽ yêu cầu cấu hình model thật. Nút bỏ qua chỉ ẩn kết quả trên giao diện, không thay đổi dữ liệu hay cài đặt cảnh báo.
+
+Thanh công cụ dưới màn hình chia demo thành ba mục: **Trang chủ** để xem dự báo ngân sách và hỏi chatbot, **Thu chi** để nhập giao dịch mới, và **Thông báo** để phân loại các khoản chưa có nhãn. Chuông hiển thị số giao dịch đang chờ. Giao dịch mới và ngân sách chỉnh trên giao diện chỉ tồn tại đến khi dừng server; ngày nhận thu nhập, thu nhập tháng và số dư đầu kỳ là giả định synthetic trong `data/demo_finance.json`.
+
+Khi nhập thu chi, để **Tự nhận diện** để hệ thống đối chiếu các cụm từ rõ nghĩa với nhóm (không gọi model). Nội dung không khớp hoặc khớp nhiều nhóm sẽ chờ xác nhận ở chuông; nếu người dùng chọn nhóm thủ công, lựa chọn đó được ưu tiên. Danh sách cụm từ chỉ là quy tắc demo và không nhận diện được mọi nội dung giao dịch.
+
+Các nhóm trả nợ, cho vay và tiết kiệm mặc định chưa có ngân sách; chọn **Chỉnh sửa** để đặt mức phù hợp. Thu nhập và chi tiêu chưa có nhãn đều xuất hiện ở chuông, kể cả sau khi tải lại trang trong cùng phiên server. Dữ liệu demo không đồng bộ ngân hàng và không lưu lâu dài.
+
+Ba kịch bản dùng cùng persona U001 và tháng 09/2026: ngày 05 nhận lương, ngày 14 nhóm đi lại chạm 80%, ngày 30 nhóm giải trí vượt ngân sách. Chọn một nhóm ở Trang chủ để xem biểu đồ tròn, sửa trần, hỏi chatbot theo nhóm và xem lịch sử đến ngày đang xem. Ngân sách nhập chỉ nằm trong trang hiện tại và sẽ trở lại mặc định nếu tải lại trang. Giao dịch mới cập nhật số dư, số đã chi và số còn lại; mức ngân sách do người dùng đặt không tự thay đổi.
+
+Nhóm **Tiết kiệm** được trình bày theo mục tiêu, không coi khoản gửi là chi tiêu: tiền ra gắn nhãn này là gửi tiết kiệm, tiền vào là rút tiết kiệm; số đã tiết kiệm ròng trong tháng bằng tiền gửi trừ tiền rút. Số dư là tiền còn sử dụng, vì vậy vẫn giảm khi gửi và tăng khi rút. Đây là mô phỏng theo tháng, không phải số dư tài khoản tiết kiệm tích lũy thực tế.
+
+Trang chủ có biểu đồ cơ cấu tiền ra theo nhóm đến ngày đang xem, kể cả khoản chưa phân loại; biểu đồ không gồm tiền gửi tiết kiệm và không cộng tiền vào. Nhóm **Khác** dùng cho thu hoặc chi phát sinh, không đặt mức trần; xem chi tiết để phân biệt tổng tiền vào và tiền ra.
+
+Nhóm **Nhà ở** được dành cố định toàn bộ hạn mức mỗi tháng, nên thanh phân bổ luôn hiện 100% khi đã đặt mức. Đây là số đã phân bổ, không mặc định coi là đã thanh toán: chi tiết vẫn hiển thị tổng tiền đã trả theo giao dịch; số dư và biểu đồ tiền ra chỉ tính những giao dịch đã có. Có thể đổi mức cố định trong chi tiết nhóm.
+
+Khi nhóm đang phân tích đã vượt hạn mức, giao diện có thể đề xuất chuyển phần ngân sách chưa dùng từ các nhóm không thiết yếu để bù. Các số tiền trong phương án do quy tắc xác định tính, không được trích từ văn bản model; nếu nguồn bù không đủ, ứng dụng ghi rõ phần còn thiếu. Người dùng chọn đồng ý, từ chối hoặc điều chỉnh số tiền chuyển trước khi áp dụng. Tổng hạn mức không thay đổi; giao dịch và số dư thực tế không bị sửa.
+
 Bộ khung cần **Python 3.10 trở lên** (Python 3.9 có sẵn trên macOS vẫn chạy được, chỉ in một dòng nhắc). **Không cần `pip install`.**
 
 **Bước 1 — Mở cửa sổ lệnh ngay trong thư mục repo**

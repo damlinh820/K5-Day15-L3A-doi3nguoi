@@ -9,6 +9,7 @@ from tracing import tool, TOOLS  # noqa: F401
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(ROOT, "data")
 THRESHOLD = 0.80
+_DEMO_TRANSACTIONS = []
 
 
 def _transactions():
@@ -17,12 +18,32 @@ def _transactions():
     for row in rows:
         row["amount"] = int(row["amount"])
         row["is_essential"] = row["is_essential"] == "1"
-    return rows
+    return rows + [dict(row) for row in _DEMO_TRANSACTIONS]
+
+
+def add_demo_transaction(transaction: dict) -> dict:
+    """Thêm giao dịch vào bộ nhớ của server demo; không ghi file hoặc tác động ra ngoài."""
+    _DEMO_TRANSACTIONS.append(dict(transaction))
+    return dict(transaction)
+
+
+def classify_demo_transaction(tx_id: str, category: str) -> dict | None:
+    """Cập nhật nhóm của giao dịch demo trong bộ nhớ; không ghi file hoặc tác động ra ngoài."""
+    for transaction in _DEMO_TRANSACTIONS:
+        if transaction["tx_id"] == tx_id:
+            transaction["category"] = category
+            transaction["is_essential"] = category in {"nha_o", "hoa_don", "y_te", "tra_no", "cho_vay", "tiet_kiem"}
+            return dict(transaction)
+    return None
 
 
 def _budgets():
     with open(os.path.join(DATA_DIR, "budgets.json"), encoding="utf-8") as handle:
-        return json.load(handle)
+        budgets = json.load(handle)
+    for groups in budgets.values():
+        for category in ("tra_no", "cho_vay", "tiet_kiem", "khac"):
+            groups.setdefault(category, 0)
+    return budgets
 
 
 @tool
@@ -38,7 +59,7 @@ def get_budget_status(user_id: str, month: str, category: str, through_date: str
     budget = int(_budgets()[user_id][category])
     rows = [row for row in _transactions() if row["user_id"] == user_id
             and row["date"].startswith(month) and row["category"] == category
-            and row["date"] <= through_date]
+            and row["date"] <= through_date and row["amount"] > 0]
     spent = sum(row["amount"] for row in rows)
     return {"user_id": user_id, "month": month, "category": category,
             "through_date": through_date, "spent": spent, "budget": budget,
@@ -60,7 +81,8 @@ def find_cut_candidates(user_id: str, month: str, through_date: str) -> list:
     grouped = defaultdict(lambda: {"amount": 0, "count": 0})
     for row in _transactions():
         if (row["user_id"] != user_id or not row["date"].startswith(month)
-                or row["date"] > through_date or row["is_essential"]):
+                or row["date"] > through_date or row["is_essential"] or row["amount"] <= 0
+                or row["category"] not in {"an_uong", "di_lai", "mua_sam", "giai_tri"}):
             continue
         key = (row["category"], row["description"])
         grouped[key]["amount"] += row["amount"]
